@@ -1,9 +1,12 @@
 import BackButton from "@/components/BackButton";
+import ImageGalleryComponent from "@/components/ImageGalleryComponent";
 import NavigationComponent from "@/components/NavigationComponent";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
 import { getWork, getWorks } from "@/libs/microcms";
 import axios from "axios";
 import React from "react";
+import ReactImageGallery from "react-image-gallery";
+// import "react-image-gallery/styles/css/image-gallery.css";
 
 export const generateStaticParams = async () => {
   const { contents } = await getWorks();
@@ -24,6 +27,9 @@ const StaticDetailPage = async ({
   // const paths2 = await generateStaticParams();
   // console.log("paths2: ", paths2);
   const work = await getWork(workId);
+  const images = work.images.map(({ url }: { url: string }) => {
+    return { original: url, thumbnail: url };
+  });
   console.log("work: ", work);
   // await axios
   //   .get("https://4gcdh2tcw7.microcms.io/api/v1/portfolio", {
@@ -39,11 +45,13 @@ const StaticDetailPage = async ({
       <div>page3</div>
       <h1>{work.title}</h1>
       <p>{work.desc}</p>
-      <div className=" p-11 flex flex-wrap gap-7">
-        {work.images.map((image: any) => (
-          <img key={image.url} className=" w-44" src={image.url} alt="" />
-        ))}
-      </div>
+      {/* <ReactImageGallery
+        items={[]}
+        // showFullscreenButton={false}
+        // useBrowserFullscreen={false}
+        // showPlayButton={false}
+      /> */}
+      <ImageGalleryComponent images={images} />
     </MotionWrapper>
   );
 };
