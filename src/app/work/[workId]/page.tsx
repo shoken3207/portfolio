@@ -93,6 +93,7 @@ const StaticDetailPage = async ({
               {work.ingenuityPoints.map(
                 ({ outline, detail }: IngenuityPointType) => (
                   <IntersectionObserverWrap
+                  key={outline}
                     defaultClass=""
                     addClasses={[]}
                     removeClasses={["opacity-0"]}
@@ -100,7 +101,6 @@ const StaticDetailPage = async ({
                     <IngenuityPoint
                       outline={outline}
                       detail={detail}
-                      key={outline}
                     />
                   </IntersectionObserverWrap>
                 )

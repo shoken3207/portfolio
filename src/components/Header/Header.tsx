@@ -4,8 +4,8 @@ import NavigationComponent from "../NavigationComponent";
 import LinkWrap from "../common/LinkWrap";
 
 const Header = () => {
-  const headerRef = useRef(null);
-  const [headerHeight, setHeaderHeight] = useState<number>(0);
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const [headerHeight, setHeaderHeight] = useState<number | undefined>(0);
   let headerClass =
     "z-10 fixed w-full mb-6 bg-white p-2 border-t-4 border-blue-400 shadow-md";
   useEffect(() => {
@@ -16,7 +16,7 @@ const Header = () => {
     <header
       ref={headerRef}
       className={`${
-        headerHeight !== 0 && `mb-[${headerHeight}px]`
+        !headerHeight && `mb-[${headerHeight}px]`
       } z-10 fixed w-full mb-6 bg-white p-2 border-t-4 border-blue-400 shadow-md`}
     >
       <div className=" 1/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity">
