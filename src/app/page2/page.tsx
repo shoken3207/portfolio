@@ -9,8 +9,6 @@ const page = async () => {
   const { contents } = await getWorks();
   return (
     <MotionWrapper>
-      <Header />
-      <NavigationComponent />
       <div>page2</div>
       <WorkNav works={contents} />
     </MotionWrapper>

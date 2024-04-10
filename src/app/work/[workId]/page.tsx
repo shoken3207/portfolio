@@ -6,6 +6,7 @@ import SectionTemplate from "@/components/work/SectionTemplate";
 import { getWork, getWorks } from "@/libs/microcms";
 import React from "react";
 import IngenuityPoint from "@/components/work/IngenuityPoint";
+import IntersectionObserverWrap from "@/components/common/IntersectionObserverWrap";
 
 type ImageType = { url: string; height: number; width: number };
 type LinkType = {
@@ -91,11 +92,17 @@ const StaticDetailPage = async ({
             <div className=" pl-4 flex flex-col gap-y-5">
               {work.ingenuityPoints.map(
                 ({ outline, detail }: IngenuityPointType) => (
-                  <IngenuityPoint
-                    outline={outline}
-                    detail={detail}
-                    key={outline}
-                  />
+                  <IntersectionObserverWrap
+                    defaultClass=""
+                    addClasses={[]}
+                    removeClasses={["opacity-0"]}
+                  >
+                    <IngenuityPoint
+                      outline={outline}
+                      detail={detail}
+                      key={outline}
+                    />
+                  </IntersectionObserverWrap>
                 )
               )}
             </div>
