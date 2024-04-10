@@ -1,12 +1,22 @@
-import BackButton from "@/components/BackButton";
-import ImageGalleryComponent from "@/components/ImageGalleryComponent";
-import NavigationComponent from "@/components/NavigationComponent";
+import BackButton from "@/components/work/BackButton";
+import ImageGalleryComponent from "@/components/work/ImageGalleryComponent";
+import LinkComponent from "@/components/work/LinkComponent";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
+import SectionTemplate from "@/components/work/SectionTemplate";
 import { getWork, getWorks } from "@/libs/microcms";
-import axios from "axios";
 import React from "react";
-import ReactImageGallery from "react-image-gallery";
-// import "react-image-gallery/styles/css/image-gallery.css";
+import IngenuityPoint from "@/components/work/IngenuityPoint";
+
+type ImageType = { url: string; height: number; width: number };
+type LinkType = {
+  name: string;
+  url: string;
+  logoImage: ImageType;
+};
+export type IngenuityPointType = {
+  outline: string;
+  detail: string;
+};
 
 export const generateStaticParams = async () => {
   const { contents } = await getWorks();
@@ -15,7 +25,6 @@ export const generateStaticParams = async () => {
       workId: work.id,
     };
   });
-  console.log(paths);
   return [...paths];
 };
 
@@ -24,34 +33,75 @@ const StaticDetailPage = async ({
 }: {
   params: { workId: string };
 }) => {
-  // const paths2 = await generateStaticParams();
-  // console.log("paths2: ", paths2);
   const work = await getWork(workId);
   const images = work.images.map(({ url }: { url: string }) => {
     return { original: url, thumbnail: url };
   });
   console.log("work: ", work);
-  // await axios
-  //   .get("https://4gcdh2tcw7.microcms.io/api/v1/portfolio", {
-  //     headers: {
-  //       "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY,
-  //     },
-  //   })
-  //   .then((res) => console.log("res: ", res.data));
+
   return (
     <MotionWrapper>
-      <BackButton />
-      <NavigationComponent />
-      <div>page3</div>
-      <h1>{work.title}</h1>
-      <p>{work.desc}</p>
-      {/* <ReactImageGallery
-        items={[]}
-        // showFullscreenButton={false}
-        // useBrowserFullscreen={false}
-        // showPlayButton={false}
-      /> */}
+      {/* <BackButton /> */}
+
       <ImageGalleryComponent images={images} />
+      <div className=" w-11/12 max-w-3xl mx-auto">
+        <h1 className=" text-4xl text-blue-600 font-bold">{work.title}</h1>
+        <div className="flex flex-col gap-4">
+          <SectionTemplate title="概要">
+            <p className=" pl-4 whitespace-pre-wrap text-gray-500">
+              {work.desc}
+            </p>
+          </SectionTemplate>
+          <SectionTemplate title="開発に至った経緯">
+            <p className=" pl-4 whitespace-pre-wrap text-gray-500">
+              {work.projectOrigin}
+            </p>
+          </SectionTemplate>
+          <SectionTemplate title="開発人数・開発期間">
+            <p className=" pl-4 whitespace-pre-wrap text-gray-500">
+              <span className="text-xl">{work.numberOfDevelopers}</span>人で、{" "}
+              {work.developmentPeriod}
+            </p>
+          </SectionTemplate>
+          <SectionTemplate title="使用言語など">
+            <div className=" pl-4 flex items-center gap-2 flex-wrap">
+              {work.technologyUsed.technologyUsed.map((technology: string) => (
+                <span
+                  key={technology}
+                  className=" text-[13px] border-2 border-gray-400 text-gray-500 p-[8px] rounded-2xl min-w-16 inline-block text-center"
+                >
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </SectionTemplate>
+          <SectionTemplate title="リンク">
+            <div className=" pl-4 flex flex-col gap-y-2">
+              {work.links.map(({ name, url, logoImage }: LinkType) => (
+                <LinkComponent
+                  key={name}
+                  name={name}
+                  url={url}
+                  logoImage={logoImage.url}
+                />
+              ))}
+            </div>
+          </SectionTemplate>
+          <SectionTemplate title="工夫した点">
+            <div className=" pl-4 flex flex-col gap-y-5">
+              {work.ingenuityPoints.map(
+                ({ outline, detail }: IngenuityPointType) => (
+                  <IngenuityPoint
+                    outline={outline}
+                    detail={detail}
+                    key={outline}
+                  />
+                )
+              )}
+            </div>
+          </SectionTemplate>
+        </div>
+      </div>
     </MotionWrapper>
   );
 };
