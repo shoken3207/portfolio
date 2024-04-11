@@ -41,7 +41,7 @@ const StaticDetailPage = async ({
 
   return (
     <MotionWrapper>
-      <div className=" pt-[10px] pb-8 flex flex-col gap-y-4 bg-[#f5fbfd]">
+      <div className="pt-[10px] pb-8 flex flex-col gap-y-4 bg-[#f5fbfd]">
         <ImageGalleryComponent images={images} />
         <h1 className=" w-11/12 max-w-3xl mx-auto  text-[28px] text-blue-400 font-bold">
           {work.title}

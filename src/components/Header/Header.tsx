@@ -8,7 +8,7 @@ const Header = () => {
   const navItems = [
     {
       text: "Profile",
-      href: "#",
+      href: "/page2/#profile",
       iconName: "profile.svg",
     },
     {
@@ -33,27 +33,23 @@ const Header = () => {
     },
   ];
   return (
-    <div className="pb-[75px]">
-      <header
-        className={`fixed top-0 z-10 w-full bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
-      >
-        <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity">
-          <LinkWrap href="/page2">
-            <h1 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex items-center gap-x-1.5">
-              <img
-                className="w-12"
-                src="/images/f_f_business_30_s512_f_business_30_0nbg.png"
-                alt=""
-              />
-              <span className=" text-3xl font-bold text-gray-500">
-                Portfolio
-              </span>
-            </h1>
-          </LinkWrap>
-          {/* <Navigation navItems={navItems} /> */}
-        </div>
-      </header>
-    </div>
+    <header
+      className={`sticky top-0 z-10 w-full bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
+    >
+      <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity">
+        <LinkWrap href="/page2">
+          <h1 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex items-center gap-x-1.5">
+            <img
+              className="w-12"
+              src="/images/f_f_business_30_s512_f_business_30_0nbg.png"
+              alt=""
+            />
+            <span className=" text-3xl font-bold text-gray-500">Portfolio</span>
+          </h1>
+        </LinkWrap>
+        <Navigation navItems={navItems} />
+      </div>
+    </header>
   );
 };
 
