@@ -1,5 +1,4 @@
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import React, { useRef } from "react";
+import React from "react";
 import IntersectionObserverWrap from "../common/IntersectionObserverWrap";
 
 const SectionTemplate = ({
