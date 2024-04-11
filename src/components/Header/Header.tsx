@@ -36,7 +36,7 @@ const Header = () => {
     <header
       className={`sticky top-0 z-10 w-full bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
     >
-      <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity">
+      <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity hidden]">
         <LinkWrap href="/page2">
           <h1 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex items-center gap-x-1.5">
             <img
