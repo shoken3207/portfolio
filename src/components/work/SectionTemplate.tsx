@@ -16,10 +16,10 @@ const SectionTemplate = ({
       removeClasses={["opacity-0"]}
     >
       <div className="flex flex-col gap-2">
-        <h2 className="text-3xl font-bold pl-2 border-l-8 border-blue-600">
+        <h2 className="text-2xl font-bold pl-2 border-l-8 border-blue-400">
           {title}
         </h2>
-        {children}
+        <div className="pl-4">{children}</div>
       </div>
     </IntersectionObserverWrap>
   );

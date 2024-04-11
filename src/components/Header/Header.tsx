@@ -2,12 +2,40 @@
 import React, { useEffect, useRef, useState } from "react";
 import NavigationComponent from "../NavigationComponent";
 import LinkWrap from "../common/LinkWrap";
+import Navigation from "./Navigation";
 
 const Header = () => {
+  const navItems = [
+    {
+      text: "Profile",
+      href: "#",
+      iconName: "profile.svg",
+    },
+    {
+      text: "Skills",
+      href: "#",
+      iconName: "skills.svg",
+    },
+    {
+      text: "Works",
+      href: "#",
+      iconName: "works.svg",
+    },
+    {
+      text: "History",
+      href: "#",
+      iconName: "history.svg",
+    },
+    {
+      text: "Form",
+      href: "#",
+      iconName: "form.svg",
+    },
+  ];
   return (
-    <div className="pb-[80px]">
+    <div className="pb-[52px]">
       <header
-        className={`fixed top-0 z-10 w-full bg-white p-2 border-t-4 border-blue-400 shadow-md`}
+        className={`fixed top-0 z-10 w-full bg-white p-2 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
       >
         <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity">
           <LinkWrap href="/page2">
@@ -22,7 +50,7 @@ const Header = () => {
               </span>
             </h1>
           </LinkWrap>
-          <NavigationComponent />
+          {/* <Navigation navItems={navItems} /> */}
         </div>
       </header>
     </div>
