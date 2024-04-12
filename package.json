@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@types/react-image-gallery": "^1.2.4",
-    "axios": "^1.6.8",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.0.25",
     "microcms-js-sdk": "^3.1.0",
     "microcms-lib": "^1.0.4",

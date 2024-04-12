@@ -1,4 +1,5 @@
 import WorkNav from "@/components/WorkNav";
+import Form from "@/components/form/Form";
 import Home from "@/components/home/Home";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
 import Profile from "@/components/profile/Profile";
@@ -13,8 +14,9 @@ const page = async () => {
   return (
     <MotionWrapper>
       <Home />
-      <Profile profileInfo={portfolio.profile} />
-      <WorkNav works={portfolio.works} />
+      <Profile id="profile" profileInfo={portfolio.profile} />
+      <WorkNav id="works" works={portfolio.works} />
+      <Form id="form" />
     </MotionWrapper>
   );
 };

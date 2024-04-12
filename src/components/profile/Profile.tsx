@@ -2,7 +2,13 @@ import React from "react";
 import LinkComponent from "../work/LinkComponent";
 import { portfolio_profile } from "@/types/cms-portfolio-types";
 
-const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
+const Profile = ({
+  profileInfo,
+  id,
+}: {
+  profileInfo: portfolio_profile;
+  id: string;
+}) => {
   const {
     firstName,
     lastName,
@@ -24,7 +30,7 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
   return (
     <div
       className="w-11/12 max-w-3xl mx-auto min-h-screen flex items-center justify-center"
-      id="profile"
+      id={id}
     >
       <div className="flex items-start justify-center gap-x-8">
         <img

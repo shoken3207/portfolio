@@ -18,7 +18,7 @@ const Header = () => {
     },
     {
       text: "Works",
-      href: "#",
+      href: "/page2#works",
       iconName: "works.svg",
     },
     {
@@ -28,7 +28,7 @@ const Header = () => {
     },
     {
       text: "Form",
-      href: "#",
+      href: "/page2#form",
       iconName: "form.svg",
     },
   ];

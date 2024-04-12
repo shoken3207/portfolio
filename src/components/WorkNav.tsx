@@ -1,9 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-const WorkNav = ({ works }: { works: any[] }) => {
+const WorkNav = ({ works, id }: { works: any[]; id: string }) => {
   return (
-    <div className=" max-w-2xl mx-auto w-10/12 flex flex-wrap justify-center gap-6">
+    <div
+      id={id}
+      className=" max-w-2xl mx-auto w-10/12 flex flex-wrap justify-center gap-6"
+    >
       {works.map((work) => (
         <Link key={work.id} href={`/work/${work.id}`}>
           <div className=" w-32 hover:opacity-50">
