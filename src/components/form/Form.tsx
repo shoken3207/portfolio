@@ -55,6 +55,14 @@ const Form = ({ id }: { id: string }) => {
     e?.stopPropagation();
     setForm({ name: "", email: "", message: "" });
   };
+  const submitButtonClass =
+    !form.email || !form.name || !form.message
+      ? "opacity-20 pointer-events-none"
+      : "";
+  const resetButtonClass =
+    !form.name && !form.email && !form.message
+      ? "opacity-20 pointer-events-none"
+      : "";
   return (
     <div
       id={id}
@@ -98,15 +106,14 @@ const Form = ({ id }: { id: string }) => {
           </InputArea>
           <div className="flex items-center justify-center gap-x-8">
             <button
-              className=" min-w-20 px-4 py-2 rounded-[10px] bg-red-500 text-white"
+              className={` min-w-20 px-4 py-2 rounded-[10px] bg-red-500 text-white ${resetButtonClass}`}
               onClick={(e) => handleClear(e)}
             >
               リセット
             </button>
             <button
               type="submit"
-              className=" min-w-20 px-4 py-2 rounded-[10px] bg-sky-500 text-white"
-              onClick={(e) => sendMail(e)}
+              className={`min-w-20 px-4 py-2 rounded-[10px] bg-sky-500 text-white ${submitButtonClass}`}
             >
               送信
             </button>

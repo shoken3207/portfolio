@@ -138,6 +138,7 @@ interface works_selectTechnologys {
     | "Python"
     | "Bun"
     | "Java"
+    | any
   )[];
 }
 interface works_developmentPeriod {
@@ -173,7 +174,7 @@ export type portfolio<T = "get"> = Structure<
   }
 >;
 
-interface portfolio_qualification {
+export interface portfolio_qualification {
   fieldId: "qualification";
   /**
    * 資格名
@@ -195,7 +196,7 @@ interface portfolio_skill {
    */
   level: number;
 }
-interface portfolio_skillsByCategory {
+export interface portfolio_skillsByCategory {
   fieldId: "skillsByCategory";
   /**
    * タイトル

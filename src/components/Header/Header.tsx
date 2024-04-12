@@ -12,19 +12,19 @@ const Header = () => {
       iconName: "profile.svg",
     },
     {
+      text: "History",
+      href: "/page2#history",
+      iconName: "history.svg",
+    },
+    {
       text: "Skills",
-      href: "#",
+      href: "/page2#skills",
       iconName: "skills.svg",
     },
     {
       text: "Works",
       href: "/page2#works",
       iconName: "works.svg",
-    },
-    {
-      text: "History",
-      href: "#",
-      iconName: "history.svg",
     },
     {
       text: "Form",
@@ -37,7 +37,7 @@ const Header = () => {
       className={`sticky top-0 z-10 w-full bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
     >
       <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity hidden]">
-        <LinkWrap href="/page2">
+        <LinkWrap href="/page2#home">
           <h1 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex items-center gap-x-1.5">
             <img
               className="w-12"

@@ -1,14 +1,14 @@
 import React from "react";
 
-const Home = ({ id }: { id: string }) => {
+const History = ({ id }: { id: string }) => {
   return (
     <div
       id={id}
       className="w-full min-h-screen flex items-center justify-center"
     >
-      Home
+      History
     </div>
   );
 };
 
-export default Home;
+export default History;
