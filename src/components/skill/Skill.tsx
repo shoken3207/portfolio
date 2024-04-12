@@ -3,15 +3,16 @@ import {
   portfolio_skillsByCategory,
 } from "@/types/cms-portfolio-types";
 import React from "react";
+import SkillCard from "./SkillCard";
 
 const Skill = ({
   id,
   skills,
-  qualification,
+  qualifications,
 }: {
   id: string;
   skills: portfolio_skillsByCategory[];
-  qualification: portfolio_qualification[];
+  qualifications: portfolio_qualification[];
 }) => {
   return (
     <div
@@ -19,6 +20,21 @@ const Skill = ({
       className="w-full min-h-screen flex items-center justify-center"
     >
       Skill
+      {/* <table>
+          <tr><th>資格名</th>
+          <th>取得年月日</th></tr>
+        {qualifications.map(({name,acquisitionDate }) => (
+          <tr key={name}>
+            <td>{name}</td>
+            <td>{acquisitionDate}</td>
+          </tr>
+        ))}
+      </table> */}
+    <div>
+     {skills.map(({title, logoImage, skills} ) => (
+      <SkillCard title={title} logoImage={logoImage.url} skills={skills} />
+     ))}
+    </div>
     </div>
   );
 };

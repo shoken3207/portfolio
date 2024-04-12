@@ -20,7 +20,7 @@ const page = async () => {
       <Skill
         id="skills"
         skills={portfolio.skills}
-        qualification={portfolio.acquisitions}
+        qualifications={portfolio.qualifications}
       />
       <WorkNav id="works" works={portfolio.works} />
       <Form id="form" />

@@ -166,7 +166,7 @@ export type portfolio<T = "get"> = Structure<
     /**
      * 保持資格
      */
-    acquisitions: portfolio_qualification[];
+    qualifications: portfolio_qualification[];
     /**
      * 保持スキル
      */
@@ -185,7 +185,7 @@ export interface portfolio_qualification {
    */
   acquisitionDate: string;
 }
-interface portfolio_skill {
+export interface portfolio_skill {
   fieldId: "skill";
   /**
    * スキル名
