@@ -17,7 +17,7 @@ const LinkComponent = ({
         <h4 className="font-bold text-base">{name}</h4>
       </div>
       <a
-        className="text-sm text-blue-600 tracking-normal"
+        className="text-sm text-blue-600 tracking-normal break-words"
         target="_blank"
         rel="noopener noreferrer"
         href={url}

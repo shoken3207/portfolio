@@ -14,16 +14,18 @@ const page = async () => {
   console.log(portfolio);
   return (
     <MotionWrapper>
-      <Home id="home" />
-      <Profile id="profile" profileInfo={portfolio.profile} />
-      <History id="history" />
-      <Skill
-        id="skills"
-        skills={portfolio.skills}
-        qualifications={portfolio.qualifications}
-      />
-      <WorkNav id="works" works={portfolio.works} />
-      <Form id="form" />
+      <div className="flex flex-col gap-y-16">
+        <Home id="home" />
+        <Profile id="profile" profileInfo={portfolio.profile} />
+        <History id="history" />
+        <Skill
+          id="skills"
+          skills={portfolio.skills}
+          qualifications={portfolio.qualifications}
+        />
+        <WorkNav id="works" works={portfolio.works} />
+        <Form id="form" />
+      </div>
     </MotionWrapper>
   );
 };

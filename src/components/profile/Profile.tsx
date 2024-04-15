@@ -29,7 +29,7 @@ const Profile = ({
   console.log(birthdayToDate.getFullYear(), currentYearsBirthday);
   return (
     <div
-      className="w-11/12 max-w-3xl mx-auto min-h-screen flex items-center justify-center"
+      className="w-11/12 max-w-3xl mx-auto min-h-screen flex items-center justify-center py-8"
       id={id}
     >
       <div className="flex items-start justify-center gap-x-8">

@@ -66,7 +66,7 @@ const Form = ({ id }: { id: string }) => {
   return (
     <div
       id={id}
-      className="text-gray-600 flex items-center justify-center w-full h-screen bg-gradient-to-r from-blue-200 to-cyan-200"
+      className="py-8 text-gray-600 flex items-center justify-center w-full min-h-screen bg-gradient-to-r from-blue-200 to-cyan-200"
     >
       <div className="flex flex-col gap-y-8 w-[90%] max-w-xl mx-auto">
         <h2 className="font-bold text-3xl text-center">お問い合わせ</h2>
