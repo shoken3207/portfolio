@@ -106,7 +106,7 @@ const Form = ({ id }: { id: string }) => {
           </InputArea>
           <div className="flex items-center justify-center gap-x-8">
             <button
-            type="button"
+              type="button"
               className={` min-w-20 px-4 py-2 rounded-[10px] bg-red-500 text-white ${resetButtonClass}`}
               onClick={(e) => handleClear(e)}
             >
