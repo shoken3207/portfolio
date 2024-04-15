@@ -5,7 +5,7 @@ const WorkNav = ({ works, id }: { works: any[]; id: string }) => {
   return (
     <div
       id={id}
-      className=" max-w-2xl mx-auto w-10/12 flex flex-wrap justify-center gap-6"
+      className=" mw-11/12 max-w-3xl mx-auto min-h-screen flex flex-wrap justify-center gap-6 py-8"
     >
       {works.map((work) => (
         <Link key={work.id} href={`/work/${work.id}`}>

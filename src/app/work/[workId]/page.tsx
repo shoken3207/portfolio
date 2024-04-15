@@ -6,6 +6,7 @@ import { getWork, getWorks } from "@/libs/microcms";
 import React from "react";
 import IngenuityPoint from "@/components/work/IngenuityPoint";
 import IntersectionObserverWrap from "@/components/common/IntersectionObserverWrap";
+import BackButton from "@/components/common/BackButton";
 
 type ImageType = { url: string; height: number; width: number };
 type LinkType = {
@@ -41,6 +42,7 @@ const StaticDetailPage = async ({
 
   return (
     <MotionWrapper>
+      <BackButton />
       <div className="pt-[10px] pb-8 flex flex-col gap-y-4 bg-[#f5fbfd]">
         <ImageGalleryComponent images={images} />
         <h1 className=" w-11/12 max-w-3xl mx-auto  text-[28px] text-blue-400 font-bold">
