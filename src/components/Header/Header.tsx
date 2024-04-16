@@ -43,14 +43,32 @@ const Header = () => {
         <div>
           <div
             onClick={() => setIsOpen(false)}
-            className={`cursor-pointer fixed w-full h-screen bg-black top-0 left-0 z-10 opacity-50 ${backgroundClass}`}
+            className={`cursor-pointer fixed w-full h-screen bg-black top-0 left-0 z-20 opacity-50 ${backgroundClass}`}
           ></div>
           <div
-            className={`fixed z-20 top-[4px] right-0 h-full bg-white flex flex-col min-w-36 max-w-96 w-[40%] transition:all duration-300  ${mobileMenuClass}`}
+            className={`fixed z-30 top-[4px] right-0 h-full bg-white flex flex-col min-w-36 max-w-96 w-[40%] transition:all duration-300  ${mobileMenuClass}`}
           >
+            <LinkWrap href="/page2">
+              <h1
+                onClick={() => setIsOpen(false)}
+                className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex flex-col gap-y-2 items-center my-4"
+              >
+                <img
+                  className="w-12"
+                  src="/images/f_f_business_30_s512_f_business_30_0nbg.png"
+                  alt=""
+                />
+                <span className=" text-3xl font-bold text-gray-500">
+                  Portfolio
+                </span>
+              </h1>
+            </LinkWrap>
             {navItems.map(({ text, href, iconName }) => (
               <LinkWrap key={text} href={href}>
-                <div className="pl-2 py-2 w-full flex items-center gap-x-2 ">
+                <div
+                  onClick={() => setIsOpen(false)}
+                  className="pl-4 py-2 w-full flex items-center gap-x-2 "
+                >
                   <img className="w-4" src={`/icons/${iconName}`} alt="" />
                   <span>{text}</span>
                 </div>

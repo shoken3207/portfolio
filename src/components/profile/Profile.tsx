@@ -40,14 +40,17 @@ const Profile = ({
         />
         <div className="w-[60%]">
           <table>
-            <tr className="text-gray-600 text-xs">
-              <td>{lastName_furigana}</td>
-              <td>{firstName_furigana}</td>
-            </tr>
-            <tr className="text-gray-600 text-2xl font-bold">
-              <td>{lastName}</td>
-              <td>{firstName}</td>
-            </tr>
+            <thead></thead>
+            <tbody>
+              <tr className="text-gray-600 text-xs">
+                <td>{lastName_furigana}</td>
+                <td>{firstName_furigana}</td>
+              </tr>
+              <tr className="text-gray-600 text-2xl font-bold">
+                <td>{lastName}</td>
+                <td>{firstName}</td>
+              </tr>
+            </tbody>
           </table>
           <p className="text-[14px] text-gray-600 whitespace-pre-wrap">
             {profileInfo.introduction}

@@ -8,7 +8,11 @@ const LinkWrap = ({
   children: React.ReactNode;
   href: string;
 }) => {
-  return <Link href={href}>{children}</Link>;
+  return (
+    <Link className="inline" href={href}>
+      {children}
+    </Link>
+  );
 };
 
 export default LinkWrap;

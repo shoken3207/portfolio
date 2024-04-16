@@ -1,6 +1,6 @@
 import WorkNav from "@/components/WorkNav";
 import Form from "@/components/form/Form";
-import History from "@/components/history/History";
+// import History from "@/components/history/History";
 import Home from "@/components/home/Home";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
 import Profile from "@/components/profile/Profile";

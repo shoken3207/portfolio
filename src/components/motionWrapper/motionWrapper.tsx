@@ -5,7 +5,6 @@ import React from "react";
 
 const MotionWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathName = usePathname();
-  console.log("called");
   return (
     <AnimatePresence mode="wait">
       <motion.div
