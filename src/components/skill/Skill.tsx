@@ -33,7 +33,7 @@ const Skill = ({
             </tr>
           ))}
         </table> */}
-        <div className=" flex flex-wrap items-start justify-center gap-x-4 gap-y-8">
+        <div className=" flex flex-wrap justify-center gap-x-4 gap-y-8">
           {skills.map(({ title, logoImage, skills }) => (
             <SkillCard
               key={title}
