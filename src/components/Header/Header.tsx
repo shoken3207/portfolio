@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import LinkWrap from "../common/LinkWrap";
 import Navigation from "./Navigation";
 import { usePathname } from "next/navigation";
-import BackButton from "../common/BackButton";
 
 const Header = () => {
   const navItems = [

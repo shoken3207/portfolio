@@ -1,4 +1,4 @@
-import WorkNav from "@/components/WorkNav";
+import Work from "@/components/Work";
 import Form from "@/components/form/Form";
 import History from "@/components/history/History";
 import Home from "@/components/home/Home";
@@ -23,7 +23,7 @@ const page = async () => {
           skills={portfolio.skills}
           qualifications={portfolio.qualifications}
         />
-        <WorkNav id="works" works={portfolio.works} />
+        <Work id="works" works={portfolio.works} />
         <Form id="form" />
       </div>
     </MotionWrapper>

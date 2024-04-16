@@ -11,8 +11,8 @@ const TimelineElement = ({
     icon: React.JSX.Element;
     date: string;
     title: string;
-    subtitle: string;
-    desc: string;
+    subtitle?: string;
+    desc?: string;
   };
   index: number;
 }) => {
