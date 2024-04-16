@@ -5,12 +5,12 @@ import React from "react";
 const BackButton = () => {
   const router = useRouter();
   return (
-    <div
-      className="text-white text-2xl font-weight shadow-sm fixed top-3 left-3 z-30"
+    <img
+      className="w-6 font-bold cursor-pointer"
+      src="/icons/back-svgrepo-com.svg"
+      alt=""
       onClick={() => router.back()}
-    >
-      ←
-    </div>
+    />
   );
 };
 

@@ -17,7 +17,7 @@ const page = async () => {
       <div className="flex flex-col gap-y-16">
         <Home id="home" />
         <Profile id="profile" profileInfo={portfolio.profile} />
-        <History id="history" />
+        {/* <History id="history" /> */}
         <Skill
           id="skills"
           skills={portfolio.skills}

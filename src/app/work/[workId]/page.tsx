@@ -38,13 +38,18 @@ const StaticDetailPage = async ({
   const images = work.images.map(({ url }: { url: string }) => {
     return { original: url, thumbnail: url };
   });
-  console.log("work: ", work);
 
   return (
     <MotionWrapper>
-      <BackButton />
-      <div className="pt-[10px] pb-8 flex flex-col gap-y-4 bg-[#f5fbfd]">
-        <ImageGalleryComponent images={images} />
+      <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30 mb-2">
+        <div className="w-[95%] max-w-3xl mx-auto flex justify-start items-center py-1.5">
+          <BackButton />
+        </div>
+      </div>
+      <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd]">
+        <div className="w-full max-w-3xl mx-auto">
+          <ImageGalleryComponent images={images} />
+        </div>
         <h1 className=" w-11/12 max-w-3xl mx-auto  text-[28px] text-blue-400 font-bold">
           {work.title}
         </h1>

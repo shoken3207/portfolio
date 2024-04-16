@@ -37,12 +37,9 @@ const Header = () => {
   const backgroundClass = isOpen ? "black" : "hidden";
   const mobileMenuClass = isOpen ? "translate-x-0" : "translate-x-[100%]";
   const pathname = usePathname();
-  console.log("pathname: ", pathname.split("/")[1]);
   return (
     <div>
-      {pathname.split("/")[1] === "work" ? (
-        <BackButton />
-      ) : (
+      {pathname.split("/")[1] !== "work" && (
         <div>
           <div
             onClick={() => setIsOpen(false)}
