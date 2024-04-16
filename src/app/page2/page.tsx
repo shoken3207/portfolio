@@ -1,6 +1,6 @@
 import WorkNav from "@/components/WorkNav";
 import Form from "@/components/form/Form";
-// import History from "@/components/history/History";
+import History from "@/components/history/History";
 import Home from "@/components/home/Home";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
 import Profile from "@/components/profile/Profile";
@@ -17,7 +17,7 @@ const page = async () => {
       <div className="flex flex-col gap-y-16">
         <Home id="home" />
         <Profile id="profile" profileInfo={portfolio.profile} />
-        {/* <History id="history" /> */}
+        <History id="history" />
         <Skill
           id="skills"
           skills={portfolio.skills}
