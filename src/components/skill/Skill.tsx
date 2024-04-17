@@ -21,18 +21,23 @@ const Skill = ({
     >
       <div className="flex flex-col gap-y-8 w-[90%] max-w-2xl mx-auto">
         <h1 className=" text-center font-bold text-3xl">Skills</h1>
-        {/* <table>
+        <table>
+          <thead>
+
           <tr>
             <th>資格名</th>
             <th>取得年月日</th>
           </tr>
-          {qualifications.map(({ name, acquisitionDate }) => (
-            <tr key={name}>
-              <td>{name}</td>
-              <td>{acquisitionDate}</td>
-            </tr>
-          ))}
-        </table> */}
+          </thead>
+          <tbody>
+            {qualifications.map(({ name, acquisitionDate }) => (
+              <tr key={name}>
+                <td>{name}</td>
+                <td>{acquisitionDate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         <div className=" flex flex-wrap justify-center gap-x-4 gap-y-8">
           {skills.map(({ title, logoImage, skills }) => (
             <SkillCard

@@ -9,7 +9,6 @@ const LinkComponent = ({
   url: string;
   logoImage?: string;
 }) => {
-  console.log("logo: ", logoImage);
   return (
     <div className="flex flex-col w-full">
       <div className="flex items-center justify-start gap-x-1">

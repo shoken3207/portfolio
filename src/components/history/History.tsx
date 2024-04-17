@@ -7,7 +7,6 @@ import TimelineElement from "./TimelineElement";
 const History = ({ id }: { id: string }) => {
   const timeline = [
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2021年4月",
       title: `KCS鹿児島情報専門学校・北海道情報大学
 入学`,
@@ -24,7 +23,6 @@ const History = ({ id }: { id: string }) => {
       ],
     },
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2022年6月 ～ 現在進行",
       title: "アプリファクトリーはるni株式会社",
       subtitle: "エンジニアアルバイト",
@@ -33,7 +31,6 @@ const History = ({ id }: { id: string }) => {
       links: [{ name: "コーポレートサイト", url: "https://haru-ni.net" }],
     },
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2023年8月",
       title: "株式会社MTI",
       subtitle: "7日間の夏インターンシップ",
@@ -45,7 +42,6 @@ const History = ({ id }: { id: string }) => {
       ],
     },
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2023年8月",
       title: "株式会社現場サポート",
       subtitle: "10日間の夏インターンシップ",
@@ -57,7 +53,6 @@ const History = ({ id }: { id: string }) => {
       ],
     },
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2023年9月",
       title: "GMOインターネットグループ株式会社",
       subtitle: "5日間の夏インターンシップ",
@@ -69,7 +64,6 @@ const History = ({ id }: { id: string }) => {
       ],
     },
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2023年10月",
       title: "GMOペパボ株式会社",
       subtitle: "3日間の秋インターンシップ",
@@ -85,7 +79,6 @@ const History = ({ id }: { id: string }) => {
       ],
     },
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2025年3月",
       title: "KCS鹿児島情報専門学校・北海道情報大学",
       subtitle: "卒業予定",
@@ -102,7 +95,6 @@ const History = ({ id }: { id: string }) => {
       ],
     },
     {
-      icon: <img src="/icons/works.svg" />,
       date: "2025年4月 ～",
       title: "サイボウズ株式会社",
       desc: "フロントエンドエンジニア職として入社予定です。",
@@ -113,11 +105,10 @@ const History = ({ id }: { id: string }) => {
   return (
     <div id={id} className="vertical-timeline-element">
       <VerticalTimeline lineColor="skyblue">
-        {timeline.map((timeline, index) => (
+        {timeline.map((timeline) => (
           <TimelineElement
             key={timeline.title}
             timeline={timeline}
-            index={index}
           />
         ))}
       </VerticalTimeline>

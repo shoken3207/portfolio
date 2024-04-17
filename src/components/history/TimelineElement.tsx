@@ -6,10 +6,8 @@ import LinkComponent from "../work/LinkComponent";
 
 const TimelineElement = ({
   timeline,
-  index,
 }: {
   timeline: {
-    icon: React.JSX.Element;
     date: string;
     title: string;
     subtitle?: string;
@@ -17,9 +15,8 @@ const TimelineElement = ({
     images: string[];
     links: { name: string; url: string }[];
   };
-  index: number;
 }) => {
-  const { icon, date, title, subtitle, desc, images, links } = timeline;
+  const { date, title, subtitle, desc, images, links } = timeline;
   const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
@@ -27,7 +24,6 @@ const TimelineElement = ({
       <VerticalTimelineElement
         visible={inView}
         date={date}
-        {...icon}
         iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
       >
         {title ? (
@@ -57,7 +53,7 @@ const TimelineElement = ({
             {links.length > 0 && (
               <div className="flex flex-col items-start gap-y-1 mt-4">
                 {links.map(({ name, url }) => (
-                  <LinkComponent name={name} url={url} />
+                  <LinkComponent key={name} name={name} url={url} />
                 ))}
               </div>
             )}
