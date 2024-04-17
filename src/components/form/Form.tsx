@@ -4,7 +4,7 @@ import Input from "./Input";
 import InputArea from "./InputArea";
 import { init, send } from "emailjs-com";
 
-const Form = ({ id }: { id: string }) => {
+const Form = () => {
   const [form, setForm] = useState<{
     name: string;
     email: string;
@@ -64,63 +64,57 @@ const Form = ({ id }: { id: string }) => {
       ? "opacity-20 pointer-events-none"
       : "";
   return (
-    <div
-      id={id}
-      className="py-8 text-gray-600 flex items-center justify-center w-full min-h-screen bg-gradient-to-r from-blue-200 to-cyan-200"
-    >
-      <div className="flex flex-col gap-y-8 w-[90%] max-w-xl mx-auto">
-        <h2 className="font-bold text-3xl text-center">お問い合わせ</h2>
-        <p className="text-[15px]">
-          このサイトについて質問や疑問点がありましたら、下記フォームをご利用ください。
-        </p>
-        <form onSubmit={(e) => sendMail(e)} className="flex flex-col gap-y-4">
-          <InputArea label="名前" id="name">
-            <Input
-              id="name"
-              placeholder="名前を入力"
-              handleChange={handleChange}
-              required={true}
-              value={form.name}
-            />
-          </InputArea>
-          <InputArea label="メールアドレス" id="email">
-            <Input
-              placeholder="メールアドレスを入力"
-              id="email"
-              type="email"
-              value={form.email}
-              required={true}
-              handleChange={handleChange}
-            />
-          </InputArea>
-          <InputArea id="message" label="問い合わせ内容">
-            <textarea
-              id="message"
-              className=" px-4 py-2 border-none w-full rounded-[10px] outline-none"
-              placeholder="お問い合わせ内容を入力してください"
-              onChange={(e) => handleChange(e)}
-              value={form.message}
-              cols={30}
-              rows={10}
-            ></textarea>
-          </InputArea>
-          <div className="flex items-center justify-center gap-x-8">
-            <button
-              type="button"
-              className={` min-w-20 px-4 py-2 rounded-[10px] bg-red-500 text-white ${resetButtonClass}`}
-              onClick={(e) => handleClear(e)}
-            >
-              リセット
-            </button>
-            <button
-              type="submit"
-              className={`min-w-20 px-4 py-2 rounded-[10px] bg-sky-500 text-white ${submitButtonClass}`}
-            >
-              送信
-            </button>
-          </div>
-        </form>
-      </div>
+    <div className="flex flex-col gap-y-8 text-gray-600">
+      <p className="text-[15px]">
+        このサイトについて質問や疑問点がありましたら、下記フォームをご利用ください。
+      </p>
+      <form onSubmit={(e) => sendMail(e)} className="flex flex-col gap-y-4">
+        <InputArea label="名前" id="name">
+          <Input
+            id="name"
+            placeholder="名前を入力"
+            handleChange={handleChange}
+            required={true}
+            value={form.name}
+          />
+        </InputArea>
+        <InputArea label="メールアドレス" id="email">
+          <Input
+            placeholder="メールアドレスを入力"
+            id="email"
+            type="email"
+            value={form.email}
+            required={true}
+            handleChange={handleChange}
+          />
+        </InputArea>
+        <InputArea id="message" label="問い合わせ内容">
+          <textarea
+            id="message"
+            className=" px-4 py-2 border-none w-full rounded-[10px] outline-none"
+            placeholder="お問い合わせ内容を入力してください"
+            onChange={(e) => handleChange(e)}
+            value={form.message}
+            cols={30}
+            rows={10}
+          ></textarea>
+        </InputArea>
+        <div className="flex items-center justify-center gap-x-8">
+          <button
+            type="button"
+            className={` min-w-20 px-4 py-2 rounded-[10px] bg-red-500 text-white ${resetButtonClass}`}
+            onClick={(e) => handleClear(e)}
+          >
+            リセット
+          </button>
+          <button
+            type="submit"
+            className={`min-w-20 px-4 py-2 rounded-[10px] bg-sky-500 text-white ${submitButtonClass}`}
+          >
+            送信
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

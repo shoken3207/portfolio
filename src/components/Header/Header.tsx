@@ -8,27 +8,27 @@ const Header = () => {
   const navItems = [
     {
       text: "Profile",
-      href: "/page2/#profile",
+      href: "/#profile",
       iconName: "profile.svg",
     },
     {
       text: "History",
-      href: "/page2#history",
+      href: "/#history",
       iconName: "history.svg",
     },
     {
       text: "Skills",
-      href: "/page2#skills",
+      href: "/#skills",
       iconName: "skills.svg",
     },
     {
       text: "Works",
-      href: "/page2#works",
+      href: "/#works",
       iconName: "works.svg",
     },
     {
       text: "Form",
-      href: "/page2#form",
+      href: "/#form",
       iconName: "form.svg",
     },
   ];

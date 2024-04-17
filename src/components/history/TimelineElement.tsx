@@ -51,7 +51,7 @@ const TimelineElement = ({
               {images.length > 0 && (
                 <div className="flex items-center gap-x-4 mt-4">
                   {images.map((image) => (
-                    <div key={image} className="w-[45%] max-w-40 p-4 shadow-sm">
+                    <div key={image} className="w-[45%] max-w-40 p-4 shadow-md">
                       <img className="w-full h-full" src={image} alt="" />
                     </div>
                   ))}

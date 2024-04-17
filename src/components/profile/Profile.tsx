@@ -2,13 +2,7 @@ import React from "react";
 import LinkComponent from "../work/LinkComponent";
 import { portfolio_profile } from "@/types/cms-portfolio-types";
 
-const Profile = ({
-  profileInfo,
-  id,
-}: {
-  profileInfo: portfolio_profile;
-  id: string;
-}) => {
+const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
   const {
     firstName,
     lastName,
@@ -30,17 +24,14 @@ const Profile = ({
     age--;
   }
   return (
-    <div
-      className="w-11/12 max-w-3xl mx-auto min-h-screen flex items-center justify-center py-8"
-      id={id}
-    >
-      <div className="flex items-start justify-center gap-x-8">
+    <div className="flex flex-col items-center justify-start gap-y-8">
+      <div className="flex  items-start justify-center gap-x-8">
         <img
           className=" w-[25%] aspect-square rounded-[50%]"
           src={profileImage?.url}
           alt=""
         />
-        <div className="w-[60%]">
+        <div className="w-[60%] flex flex-col items-start">
           <table>
             <thead></thead>
             <tbody>
@@ -61,19 +52,21 @@ const Profile = ({
               {birthdayToDate.getDate()}日生まれ
             </span>
           </h3>
-          <p className="text-[14px] text-gray-600 whitespace-pre-wrap">
-            {profileInfo.introduction}
-          </p>
-          <div className="flex flex-col gap-y-2">
-            {links.map(({ name, url, logoImage }) => (
-              <LinkComponent
-                key={name}
-                name={name}
-                url={url}
-                logoImage={logoImage.url}
-              />
-            ))}
-          </div>
+        </div>
+      </div>
+      <div className="w-full">
+        <p className="text-[14px] text-gray-600 whitespace-pre-wrap">
+          {profileInfo.introduction}
+        </p>
+        <div className="flex flex-col gap-y-2">
+          {links.map(({ name, url, logoImage }) => (
+            <LinkComponent
+              key={name}
+              name={name}
+              url={url}
+              logoImage={logoImage.url}
+            />
+          ))}
         </div>
       </div>
     </div>

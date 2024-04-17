@@ -4,7 +4,7 @@ import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import TimelineElement from "./TimelineElement";
 
-const History = ({ id }: { id: string }) => {
+const History = () => {
   const timeline = [
     {
       date: "2021年4月",
@@ -103,7 +103,7 @@ const History = ({ id }: { id: string }) => {
     },
   ];
   return (
-    <div id={id} className="vertical-timeline-element">
+    <div className="vertical-timeline-element">
       <VerticalTimeline lineColor="skyblue" animate={false}>
         {timeline.map((timeline) => (
           <TimelineElement key={timeline.title} timeline={timeline} />
