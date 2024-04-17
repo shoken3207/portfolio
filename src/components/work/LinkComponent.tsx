@@ -7,17 +7,17 @@ const LinkComponent = ({
 }: {
   name: string;
   url: string;
-  logoImage: string;
+  logoImage?: string;
 }) => {
   console.log("logo: ", logoImage);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <div className="flex items-center justify-start gap-x-1">
-        <img className=" w-6 h-6" src={logoImage} alt="" />
+        {logoImage && <img className=" w-6 h-6" src={logoImage} alt="" />}
         <h4 className="font-bold text-base">{name}</h4>
       </div>
       <a
-        className="text-sm text-blue-600 tracking-normal break-words"
+        className="w-full text-sm text-blue-600 tracking-normal break-words"
         target="_blank"
         rel="noopener noreferrer"
         href={url}
