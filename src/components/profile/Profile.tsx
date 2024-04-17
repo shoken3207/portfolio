@@ -18,15 +18,17 @@ const Profile = ({
     birthday,
     links,
   } = profileInfo;
-  console.log("birthday: ", birthday);
   const today = new Date();
   const birthdayToDate = new Date(birthday as string);
-  const currentYearsBirthday = new Date(
+  const thisYearsBirthday = new Date(
     today.getFullYear(),
     birthdayToDate.getMonth(),
     birthdayToDate.getDate()
   );
-  console.log(birthdayToDate.getFullYear(), currentYearsBirthday);
+  let age = today.getFullYear() - birthdayToDate.getFullYear();
+  if (today < thisYearsBirthday) {
+    age--;
+  }
   return (
     <div
       className="w-11/12 max-w-3xl mx-auto min-h-screen flex items-center justify-center py-8"
@@ -52,6 +54,13 @@ const Profile = ({
               </tr>
             </tbody>
           </table>
+          <h3 className="text-[20px]">
+            <span className=" font-bold text-[30px]">{age}</span>歳
+            <span className="text-[12px] text-gray-600 ml-4">
+              {birthdayToDate.getFullYear()}年{birthdayToDate.getMonth() + 1}月
+              {birthdayToDate.getDate()}日生まれ
+            </span>
+          </h3>
           <p className="text-[14px] text-gray-600 whitespace-pre-wrap">
             {profileInfo.introduction}
           </p>

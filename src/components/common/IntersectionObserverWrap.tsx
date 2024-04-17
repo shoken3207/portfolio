@@ -6,11 +6,13 @@ const IntersectionObserverWrap = ({
   addClasses,
   removeClasses,
   defaultClass,
+  rootMargin,
   children,
 }: {
   addClasses: string[];
   removeClasses: string[];
   defaultClass: string;
+  rootMargin?: string;
   children: React.ReactNode;
 }) => {
   const showElements = (entries: IntersectionObserverEntry[]) => {
@@ -26,7 +28,9 @@ const IntersectionObserverWrap = ({
     });
   };
   const ref = useRef<HTMLHeadingElement>(null);
-  useIntersectionObserver([ref], showElements, { rootMargin: "-50px" });
+  useIntersectionObserver([ref], showElements, {
+    rootMargin: rootMargin || "-50px",
+  });
   return (
     <div
       ref={ref}

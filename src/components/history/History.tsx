@@ -38,7 +38,7 @@ const History = ({ id }: { id: string }) => {
       images: ["/images/mti.png"],
       links: [
         { name: "コーポレートサイト", url: "https://www.mti.co.jp/" },
-        { name: "制作物", url: "http://localhost:3000/work/qkbu6n74nh2" },
+        { name: "制作物", url: "/work/qkbu6n74nh2" },
       ],
     },
     {
@@ -60,7 +60,7 @@ const History = ({ id }: { id: string }) => {
       images: ["/images/gmo.png"],
       links: [
         { name: "コーポレートサイト", url: "https://www.gmo.jp/" },
-        { name: "制作物", url: "http://localhost:3000/work/emp9p4dctai9" },
+        { name: "制作物", url: "/work/emp9p4dctai9" },
       ],
     },
     {
@@ -104,12 +104,9 @@ const History = ({ id }: { id: string }) => {
   ];
   return (
     <div id={id} className="vertical-timeline-element">
-      <VerticalTimeline lineColor="skyblue">
+      <VerticalTimeline lineColor="skyblue" animate={false}>
         {timeline.map((timeline) => (
-          <TimelineElement
-            key={timeline.title}
-            timeline={timeline}
-          />
+          <TimelineElement key={timeline.title} timeline={timeline} />
         ))}
       </VerticalTimeline>
     </div>
