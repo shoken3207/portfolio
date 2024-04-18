@@ -41,7 +41,7 @@ const StaticDetailPage = async ({
 
   return (
     <MotionWrapper>
-      <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30 mb-2">
+      <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30 sm:mb-6 lg:mb-12">
         <div className="w-[95%] max-w-4xl mx-auto flex justify-start items-center py-1.5">
           <BackButton />
         </div>

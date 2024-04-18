@@ -22,7 +22,7 @@ const page = async () => {
         <Section id="profile" sectionTitle="Profile">
           <Profile profileInfo={portfolio.profile} />
         </Section>
-        <Section id="history" sectionTitle="History">
+        <Section id="history" sectionTitle="History" maxWidth="max-w-full">
           <History />
         </Section>
         <Section id="skills" sectionTitle="Skills">

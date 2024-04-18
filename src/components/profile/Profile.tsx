@@ -25,7 +25,7 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
   }
   return (
     <div className="flex flex-col items-center justify-start gap-y-8">
-      <div className="flex  items-start justify-center gap-x-8">
+      <div className="flex  items-center justify-center gap-x-8">
         <img
           className=" w-[25%] aspect-square rounded-[50%]"
           src={profileImage?.url}
@@ -54,7 +54,7 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
           </h3>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-[90%] mx-auto">
         <p className="text-[14px] text-gray-600 whitespace-pre-wrap">
           {profileInfo.introduction}
         </p>

@@ -47,7 +47,7 @@ const Header = () => {
           <div
             className={`fixed z-30 top-[4px] right-0 h-full bg-white flex flex-col min-w-36 max-w-96 w-[40%] transition:all duration-300  ${mobileMenuClass}`}
           >
-            <LinkWrap href="/page2">
+            <LinkWrap href="/#home">
               <h1
                 onClick={() => setIsOpen(false)}
                 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex flex-col gap-y-2 items-center my-4"
@@ -78,7 +78,7 @@ const Header = () => {
             className={`fixed top-0 z-10 w-full bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
           >
             <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity hidden]">
-              <LinkWrap href="/page2#home">
+              <LinkWrap href="/#home">
                 <h1 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex items-center gap-x-1.5">
                   <img
                     className="w-12"
