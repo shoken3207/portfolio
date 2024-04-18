@@ -31,7 +31,7 @@ const page = async () => {
             qualifications={portfolio.qualifications}
           />
         </Section>
-        <Section id="works" sectionTitle="Works">
+        <Section id="works" sectionTitle="Works" maxWidth="max-w-[1000px]">
           <Work works={portfolio.works} />
         </Section>
         <Section id="form" sectionTitle="お問い合わせ">

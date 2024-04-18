@@ -18,7 +18,7 @@ const Section = ({
       className="flex items-center justify-center w-full min-h-screen py-8"
     >
       <div
-        className={`w-11/12 ${maxWidthClass} mx-auto flex flex-col gap-y-10`}
+        className={`w-11/12 ${maxWidthClass} mx-auto flex flex-col gap-y-10 sm:gap-y-16`}
       >
         <h2 className=" text-3xl font-bold text-center sm:text-4xl">
           {sectionTitle}

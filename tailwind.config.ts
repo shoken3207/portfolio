@@ -17,6 +17,7 @@ const config: Config = {
     },
   },
   plugins: [
+    require("@tailwindcss/container-queries"),
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {
