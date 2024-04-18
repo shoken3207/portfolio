@@ -24,28 +24,28 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
     age--;
   }
   return (
-    <div className="flex flex-col items-center justify-start gap-y-8">
-      <div className="flex  items-center justify-center gap-x-8">
+    <div className="flex flex-col items-center justify-start gap-y-10">
+      <div className="flex  items-center justify-start gap-x-4">
         <img
-          className=" w-[25%] aspect-square rounded-[50%]"
+          className=" w-[30%] max-w-[120px] aspect-square rounded-[50%]"
           src={profileImage?.url}
           alt=""
         />
         <div className="w-[60%] flex flex-col items-start">
           <table>
             <thead></thead>
-            <tbody>
+            <tbody >
               <tr className="text-gray-600 text-xs">
-                <td>{lastName_furigana}</td>
-                <td>{firstName_furigana}</td>
+                <td className="px-1  text-[12px]">{lastName_furigana}</td>
+                <td className="px-1  text-[12px]">{firstName_furigana}</td>
               </tr>
               <tr className="text-gray-600 text-2xl font-bold">
-                <td>{lastName}</td>
-                <td>{firstName}</td>
+                <td className="px-1 text-[28px]">{lastName}</td>
+                <td className="px-1 text-[28px]">{firstName}</td>
               </tr>
             </tbody>
           </table>
-          <h3 className="text-[20px]">
+          <h3 className="text-[22px]">
             <span className=" font-bold text-[30px]">{age}</span>歳
             <span className="text-[12px] text-gray-600 ml-4">
               {birthdayToDate.getFullYear()}年{birthdayToDate.getMonth() + 1}月
@@ -54,8 +54,8 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
           </h3>
         </div>
       </div>
-      <div className="w-[90%] mx-auto">
-        <p className="text-[14px] text-gray-600 whitespace-pre-wrap">
+      <div className="w-[90%] mx-auto flex flex-col gap-y-6">
+        <p className="text-[13px] text-gray-600 whitespace-pre-wrap">
           {profileInfo.introduction}
         </p>
         <div className="flex flex-col gap-y-2">

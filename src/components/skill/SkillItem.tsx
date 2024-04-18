@@ -5,10 +5,10 @@ import React from "react";
 const SkillItem = ({ name, level }: { name: string; level: number }) => {
   return (
     <tr>
-      <td title={name} align="center">
+      <td className="py-0.5 px-2" title={name} align="center">
         {name}
       </td>
-      <td align="center">
+      <td className="py-0.5 px-2" align="center">
         <Rating value={level} readOnly precision={0.5} />
       </td>
     </tr>
