@@ -4,33 +4,38 @@ import LinkWrap from "../common/LinkWrap";
 import Navigation from "./Navigation";
 import { usePathname } from "next/navigation";
 import { notojp } from "@/utils/font";
+import Profile from "../common/icons/Profile";
+import History from "../common/icons/History";
+import Skill from "../common/icons/Skill";
+import Work from "../common/icons/Work";
+import Form from "../common/icons/Form";
 
 const Header = () => {
   const navItems = [
     {
       text: "プロフィール",
       href: "/#profile",
-      iconName: "profile.svg",
+      icon: <Profile width="w-[20px]" height="h-[20px]" />,
     },
     {
       text: "沿革",
       href: "/#history",
-      iconName: "history.svg",
+      icon: <History width="w-[20px]" height="h-[20px]" />,
     },
     {
       text: "開発スキル",
       href: "/#skills",
-      iconName: "skills.svg",
+      icon: <Skill width="w-[20px]" height="h-[20px]" />,
     },
     {
       text: "開発実績",
       href: "/#works",
-      iconName: "works.svg",
+      icon: <Work width="w-[20px]" height="h-[20px]" />,
     },
     {
       text: "お問い合わせ",
       href: "/#form",
-      iconName: "form.svg",
+      icon: <Form width="w-[20px]" height="h-[20px]" />,
     },
   ];
   const [isOpen, setIsOpen] = useState<Boolean>(false);
@@ -64,15 +69,15 @@ const Header = () => {
               </h1>
             </LinkWrap>
             <div className="flex flex-col gap-y-1 ">
-              {navItems.map(({ text, href, iconName }) => (
+              {navItems.map(({ text, href, icon }) => (
                 <LinkWrap key={text} href={href}>
                   <div
                     onClick={() => setIsOpen(false)}
-                    className="pl-6 py-2 w-full flex items-center gap-x-3 text-[24px] transition-all duration-300 font-[500] group"
+                    className="pl-6 py-2 w-full flex items-center gap-x-3 text-[24px] font-[500] group"
                   >
-                    <img className="w-6" src={`/icons/${iconName}`} alt="" />
+                    {icon}
                     <span
-                      className={`${notojp.className} group-hover:text-blue-400`}
+                      className={`${notojp.className}   transition-all duration-300 group-hover:text-blue-400`}
                     >
                       {text}
                     </span>
