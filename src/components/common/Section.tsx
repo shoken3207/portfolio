@@ -11,7 +11,7 @@ const Section = ({
   children: React.ReactNode;
   maxWidth?: string;
 }) => {
-  const maxWidthClass = maxWidth || "max-w-3xl";
+  const maxWidthClass = maxWidth || "max-w-[800px]";
   return (
     <section
       id={id}

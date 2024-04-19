@@ -3,38 +3,39 @@ import React, { useState } from "react";
 import LinkWrap from "../common/LinkWrap";
 import Navigation from "./Navigation";
 import { usePathname } from "next/navigation";
+import { notojp } from "@/utils/font";
 
 const Header = () => {
   const navItems = [
     {
-      text: "Profile",
+      text: "プロフィール",
       href: "/#profile",
       iconName: "profile.svg",
     },
     {
-      text: "History",
+      text: "沿革",
       href: "/#history",
       iconName: "history.svg",
     },
     {
-      text: "Skills",
+      text: "開発スキル",
       href: "/#skills",
       iconName: "skills.svg",
     },
     {
-      text: "Works",
+      text: "開発実績",
       href: "/#works",
       iconName: "works.svg",
     },
     {
-      text: "Form",
+      text: "お問い合わせ",
       href: "/#form",
       iconName: "form.svg",
     },
   ];
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const backgroundClass = isOpen ? "black" : "hidden";
-  const mobileMenuClass = isOpen ? "translate-x-0" : "translate-x-[100%]";
+  const mobileMenuClass = isOpen ? "translate-x-0" : "translate-x-[-100%]";
   const pathname = usePathname();
   return (
     <div>
@@ -45,56 +46,64 @@ const Header = () => {
             className={`cursor-pointer fixed w-full h-screen bg-black top-0 left-0 z-20 opacity-50 ${backgroundClass}`}
           ></div>
           <div
-            className={`fixed z-30 top-[4px] right-0 h-full bg-white flex flex-col min-w-36 max-w-96 w-[40%] transition:all duration-300  ${mobileMenuClass}`}
+            className={`fixed z-30 top-[4px] left-0 h-full pt-3 bg-white flex flex-col gap-y-4 min-w-36 max-w-[250px] w-[65%] transition:all duration-300  ${mobileMenuClass}`}
           >
             <LinkWrap href="/#home">
               <h1
                 onClick={() => setIsOpen(false)}
-                className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex flex-col gap-y-2 items-center my-4"
+                className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex flex-col gap-y-1.5 items-center my-4"
               >
                 <img
-                  className="w-12"
+                  className="w-14"
                   src="/images/f_f_business_30_s512_f_business_30_0nbg.png"
                   alt=""
                 />
-                <span className=" text-3xl font-bold text-gray-500">
+                <span className=" text-[34px] font-bold text-black">
                   Portfolio
                 </span>
               </h1>
             </LinkWrap>
-            {navItems.map(({ text, href, iconName }) => (
-              <LinkWrap key={text} href={href}>
-                <div
-                  onClick={() => setIsOpen(false)}
-                  className="pl-4 py-2 w-full flex items-center gap-x-2 "
-                >
-                  <img className="w-4" src={`/icons/${iconName}`} alt="" />
-                  <span>{text}</span>
-                </div>
-              </LinkWrap>
-            ))}
+            <div className="flex flex-col gap-y-1 ">
+              {navItems.map(({ text, href, iconName }) => (
+                <LinkWrap key={text} href={href}>
+                  <div
+                    onClick={() => setIsOpen(false)}
+                    className="pl-6 py-2 w-full flex items-center gap-x-3 text-[24px] transition-all duration-300 font-[500] group"
+                  >
+                    <img className="w-6" src={`/icons/${iconName}`} alt="" />
+                    <span
+                      className={`${notojp.className} group-hover:text-blue-400`}
+                    >
+                      {text}
+                    </span>
+                  </div>
+                </LinkWrap>
+              ))}
+            </div>
           </div>
           <header
             className={`fixed top-0 z-10 w-full bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
           >
-            <div className=" w-11/12 mx-auto max-w-3xl flex justify-between items-center transition-opacity hidden]">
+            <div className=" w-11/12 mx-auto max-w-[1000px] flex justify-between items-center transition-opacity hidden]">
               <LinkWrap href="/#home">
-                <h1 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex items-center gap-x-1.5">
+                <h1 className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex items-center justify-start gap-x-2 sm:gap-x-[10px] lg:gap-x-3">
                   <img
-                    className="w-12"
+                    className=" w-10 sm:x-12 lg:w-14"
                     src="/images/f_f_business_30_s512_f_business_30_0nbg.png"
                     alt=""
                   />
-                  <span className=" text-3xl font-bold text-gray-500">
+                  <span
+                    className={`text-[26px] font-[500] sm:text-[30px] lg:text-[34px] text-black ${notojp.className}`}
+                  >
                     Portfolio
                   </span>
                 </h1>
               </LinkWrap>
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <Navigation navItems={navItems} />
               </div>
               <div
-                className="cursor-pointer block md:hidden"
+                className="cursor-pointer block lg:hidden"
                 onClick={() => setIsOpen(true)}
               >
                 <img

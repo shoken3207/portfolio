@@ -42,18 +42,16 @@ const StaticDetailPage = async ({
   return (
     <MotionWrapper>
       <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30 sm:mb-6 lg:mb-12">
-        <div className="w-[95%] max-w-4xl mx-auto flex justify-start items-center py-1.5">
+        <div className="w-[95%] max-w-[1200px] mx-auto flex justify-start items-center py-1.5">
           <BackButton />
         </div>
       </div>
-      <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd]">
-        <div className="w-full max-w-4xl mx-auto">
+      <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd] lg:flex-row-reverse relative lg:max-w-[1200px] lg:w-[95%] lg:mx-auto">
+        <div className="w-full max-w-4xl mx-auto lg:w-[55%] lg:sticky lg:max-h-96 lg:top-10">
           <ImageGalleryComponent images={images} />
         </div>
-        <h1 className=" w-11/12 max-w-4xl mx-auto  text-[28px] text-blue-400 font-bold">
-          {work.title}
-        </h1>
-        <div className=" w-11/12 max-w-4xl mt-1 mx-auto">
+        <div className="w-11/12 max-w-4xl mx-auto flex flex-col gap-y-2 lg:w-[40%]">
+          <h1 className="text-[28px] text-blue-400 font-bold">{work.title}</h1>
           <div className="flex flex-col gap-4">
             <SectionTemplate title="概要">
               <p className=" whitespace-pre-wrap text-gray-600 text-[14px]">

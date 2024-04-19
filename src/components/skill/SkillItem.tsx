@@ -5,7 +5,7 @@ import React from "react";
 const SkillItem = ({ name, level }: { name: string; level: number }) => {
   return (
     <tr>
-      <td className="py-0.5 px-2" title={name} align="center">
+      <td className="py-0.5 px-2" align="center">
         {name}
       </td>
       <td className="py-0.5 px-2" align="center">
