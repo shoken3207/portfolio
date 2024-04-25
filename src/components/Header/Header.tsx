@@ -130,3 +130,4 @@ const Header = forwardRef(
 );
 
 export default Header;
+Header.displayName = "Header";
