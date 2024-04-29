@@ -47,7 +47,7 @@ const StaticDetailPage = async ({
         </div>
       </div>
       <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd] lg:flex-row-reverse relative lg:max-w-[1200px] lg:w-[95%] lg:mx-auto">
-        <div className="w-full max-w-4xl mx-auto  sm:pt-6 lg:pt-12 lg:w-[55%] lg:sticky lg:max-h-96 lg:top-10">
+        <div className="w-full max-w-4xl mx-auto  sm:pt-6 lg:pt-12 lg:w-[55%] lg:sticky lg:max-h-96 top-[52px]">
           <ImageGalleryComponent images={images} />
         </div>
         <div className="w-11/12 max-w-4xl mx-auto flex flex-col gap-y-2  sm:pt-6 lg:pt-12 lg:w-[40%]">
