@@ -63,6 +63,7 @@ const Layout = ({ portfolio }: { portfolio: portfolio }) => {
             <Work works={portfolio.works} />
           </Section>
           <Section
+            backGroundColor="bg-gradient-to-tl from-green-100 via-cyan-100 to-blue-100"
             headerHeight={headerHeight}
             id="form"
             sectionTitle="お問い合わせ"

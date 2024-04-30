@@ -6,19 +6,22 @@ const Section = ({
   children,
   maxWidth,
   headerHeight,
+  backGroundColor,
 }: {
   sectionTitle: string;
   id: string;
   children: React.ReactNode;
   maxWidth?: string;
   headerHeight?: number;
+  backGroundColor?: string;
 }) => {
   const maxWidthClass = maxWidth || "max-w-[800px]";
+  const backGroundColorClass = backGroundColor || "bg-[#f5fbfd]";
   return (
     <section
       id={id}
       style={headerHeight ? { paddingTop: `${headerHeight + 36}px` } : {}}
-      className={`flex items-center justify-center w-full min-h-screen py-4`}
+      className={`flex items-center justify-center w-full min-h-screen py-4 ${backGroundColorClass}`}
     >
       <div
         className={`w-11/12 ${maxWidthClass} mx-auto flex flex-col gap-y-10 sm:gap-y-16`}

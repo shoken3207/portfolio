@@ -28,9 +28,9 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
     <div className="w-[95%] mx-auto flex flex-col items-start justify-start gap-y-10 sm:gap-y-14 lg:w-full">
       <IntersectionObserverWrap
         rootMargin="-100px"
-        defaultClass="transition-all duration-[800ms] translate-y-8 opacity-0"
+        defaultClass="transition-all duration-[800ms] -translate-x-48 opacity-0"
         addClasses={[]}
-        removeClasses={["translate-y-8", "opacity-0"]}
+        removeClasses={["-translate-x-48", "opacity-0"]}
       >
         <div className="w-full flex  items-center justify-start gap-x-4">
           <img
@@ -65,31 +65,35 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
           </div>
         </div>
       </IntersectionObserverWrap>
-      <div className="w-full flex flex-col gap-y-6 sm:gap-y-8">
+      <div className="w-full flex flex-col gap-y-6 sm:gap-y-4">
         <IntersectionObserverWrap
           rootMargin="-100px"
-          defaultClass="transition-all duration-[800ms] translate-y-8 opacity-0"
+          defaultClass="transition-all duration-[800ms] translate-y-4 opacity-0"
           addClasses={[]}
-          removeClasses={["translate-y-8", "opacity-0"]}
+          removeClasses={["translate-y-4", "opacity-0"]}
         >
           <p className="text-[13px] text-gray-600 whitespace-pre-wrap sm:text-[16px]">
             {profileInfo.introduction}
           </p>
         </IntersectionObserverWrap>
 
-        <div className="flex flex-col gap-y-2">
-          {links.map(({ name, url, logoImage }) => (
-            <IntersectionObserverWrap
-              key={name}
-              rootMargin="-100px"
-              defaultClass="transition-all duration-[800ms] translate-y-8 opacity-0"
-              addClasses={[]}
-              removeClasses={["translate-y-8", "opacity-0"]}
-            >
-              <LinkComponent name={name} url={url} logoImage={logoImage.url} />
-            </IntersectionObserverWrap>
-          ))}
-        </div>
+        <IntersectionObserverWrap
+          rootMargin="-100px"
+          defaultClass="transition-all duration-[800ms] translate-y-4 opacity-0"
+          addClasses={[]}
+          removeClasses={["translate-y-4", "opacity-0"]}
+        >
+          <div className="flex flex-col gap-y-2">
+            {links.map(({ name, url, logoImage }) => (
+              <LinkComponent
+                key={name}
+                name={name}
+                url={url}
+                logoImage={logoImage.url}
+              />
+            ))}
+          </div>
+        </IntersectionObserverWrap>
       </div>
     </div>
   );

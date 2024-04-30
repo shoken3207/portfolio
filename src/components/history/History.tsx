@@ -8,8 +8,8 @@ const History = () => {
   const timeline = [
     {
       date: "2021年4月",
-      title: `KCS鹿児島情報専門学校・北海道情報大学
-入学`,
+      title: `KCS鹿児島情報専門学校・北海道情報大学`,
+      subtitle: "入学",
       images: ["/images/kcs.jfif", "/images/hiu.jfif"],
       links: [
         {
