@@ -7,7 +7,6 @@ export async function POST(request: NextRequest): Promise<Response> {
   const bodyJson = await JSON.parse(bodyText);
   const bodyBuffer = Buffer.from(bodyText, "utf-8");
 
-  console.log("request: ", bodyJson);
   const secret = process.env.MICROCMS_WEBHOOK_SIGNATURE_SECRET_WORK;
   if (!secret) {
     console.error("Secret is empty.");
@@ -41,8 +40,8 @@ export async function POST(request: NextRequest): Promise<Response> {
     });
   }
   // 再検証処理（後述します）
-  console.log("publishValue: ", bodyJson.contents.new.publishValue);
-  const workId = bodyJson.contents.new.publishValue.id;
+  console.log("publishValue: ", bodyJson.id);
+  const workId = bodyJson.id;
   console.log("workId: ", workId);
   if (!workId) {
     console.error("workIdがありません");
