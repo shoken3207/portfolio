@@ -43,13 +43,19 @@ const StaticDetailPage = async ({
     <MotionWrapper>
       <div className="min-h-screen">
         <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30">
-          <div className="w-[95%] max-w-[1200px] mx-auto flex justify-start items-center py-1.5">
+          <div className="w-[95%] max-w-[1300px] mx-auto flex justify-start items-center py-1.5">
             <BackButton />
           </div>
         </div>
-        <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd] lg:flex-row-reverse relative lg:max-w-[1200px] lg:w-[95%] lg:mx-auto">
-          <div className="w-full max-w-4xl mx-auto  sm:pt-6 lg:pt-12 lg:w-[55%] lg:sticky lg:max-h-96 top-[52px]">
-            <ImageGalleryComponent images={images} />
+        <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd] lg:flex-row-reverse relative lg:max-w-[1300px] lg:w-[95%] lg:mx-auto">
+          <div className="w-full max-w-4xl mx-auto  lg:pt-12 lg:w-[55%] lg:sticky lg:max-h-96 top-[52px]">
+            <IntersectionObserverWrap
+              defaultClass=""
+              addClasses={[]}
+              removeClasses={["opacity-0"]}
+            >
+              <ImageGalleryComponent images={images} />
+            </IntersectionObserverWrap>
           </div>
           <div className="w-11/12 max-w-4xl mx-auto flex flex-col gap-y-2  sm:pt-6 lg:pt-12 lg:w-[40%]">
             <h1 className="text-[28px] text-blue-400 font-bold">

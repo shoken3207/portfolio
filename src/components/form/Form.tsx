@@ -102,15 +102,21 @@ const Form = () => {
         <div className="flex items-center justify-center gap-x-8">
           <button
             type="button"
-            className={` min-w-20 px-4 py-2 rounded-[10px] bg-red-500 text-white ${resetButtonClass}`}
+            className={`flex justify-center items-center gap-x-1 min-w-20 px-2 py-2 text-[18px] rounded-[10px] bg-red-500 text-white ${resetButtonClass}`}
             onClick={(e) => handleClear(e)}
           >
+            <img className="w-6" src="/icons/reset-svgrepo-com.svg" alt="" />
             リセット
           </button>
           <button
             type="submit"
-            className={`min-w-20 px-4 py-2 rounded-[10px] bg-sky-500 text-white ${submitButtonClass}`}
+            className={`flex justify-center items-center gap-x-1 min-w-20 px-4 py-2 rounded-[10px] text-[18px] bg-sky-500 text-white ${submitButtonClass}`}
           >
+            <img
+              className="w-6"
+              src="/icons/send-alt-1-svgrepo-com.svg"
+              alt=""
+            />
             送信
           </button>
         </div>

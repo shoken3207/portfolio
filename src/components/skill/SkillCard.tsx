@@ -13,7 +13,7 @@ const SkillCard = ({
   skills: portfolio_skill[];
 }) => {
   return (
-    <div className="py-4 px-5  rounded-[10px] bg-white shadow-sm w-[95%] max-w-[360px] sm:w-full">
+    <div className="py-4 px-5  rounded-[10px] bg-white shadow-sm w-[95%] max-w-[400px] sm:w-full">
       <IntersectionObserverWrap
         key={title}
         rootMargin="-150px"
