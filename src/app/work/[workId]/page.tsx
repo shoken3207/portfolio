@@ -41,76 +41,80 @@ const StaticDetailPage = async ({
 
   return (
     <MotionWrapper>
-      <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30">
-        <div className="w-[95%] max-w-[1200px] mx-auto flex justify-start items-center py-1.5">
-          <BackButton />
+      <div className="min-h-screen">
+        <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30">
+          <div className="w-[95%] max-w-[1200px] mx-auto flex justify-start items-center py-1.5">
+            <BackButton />
+          </div>
         </div>
-      </div>
-      <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd] lg:flex-row-reverse relative lg:max-w-[1200px] lg:w-[95%] lg:mx-auto">
-        <div className="w-full max-w-4xl mx-auto  sm:pt-6 lg:pt-12 lg:w-[55%] lg:sticky lg:max-h-96 top-[52px]">
-          <ImageGalleryComponent images={images} />
-        </div>
-        <div className="w-11/12 max-w-4xl mx-auto flex flex-col gap-y-2  sm:pt-6 lg:pt-12 lg:w-[40%]">
-          <h1 className="text-[28px] text-blue-400 font-bold">{work.title}</h1>
-          <div className="flex flex-col gap-4">
-            <SectionTemplate title="概要">
-              <p className=" whitespace-pre-wrap text-gray-600 text-[14px]">
-                {work.desc}
-              </p>
-            </SectionTemplate>
-            <SectionTemplate title="開発に至った経緯">
-              <p className=" whitespace-pre-wrap text-gray-600 text-[14px]">
-                {work.projectOrigin}
-              </p>
-            </SectionTemplate>
-            <SectionTemplate title="開発人数・開発期間">
-              <p className=" whitespace-pre-wrap text-gray-600 text-[14px]">
-                {work.numberOfDevelopers}人で、 {work.developmentPeriod.value}
-                {work.developmentPeriod.unit}
-              </p>
-            </SectionTemplate>
-            <SectionTemplate title="使用言語など">
-              <div className=" flex items-center gap-2 flex-wrap">
-                {work.technologyUsed.technologyUsed.map(
-                  (technology: string) => (
-                    <span
-                      key={technology}
-                      className=" text-[13px] font-bold border border-gray-400 text-gray-600 px-[8px] py-[7px] rounded-[18px] min-w-16 inline-block text-center"
-                    >
-                      {technology}
-                    </span>
-                  )
-                )}
-              </div>
-            </SectionTemplate>
-            <SectionTemplate title="リンク">
-              <div className=" flex flex-col gap-y-2">
-                {work.links.map(({ name, url, logoImage }: LinkType) => (
-                  <LinkComponent
-                    key={name}
-                    name={name}
-                    url={url}
-                    logoImage={logoImage.url}
-                  />
-                ))}
-              </div>
-            </SectionTemplate>
-            <SectionTemplate title="工夫した点">
-              <div className=" flex flex-col gap-y-5">
-                {work.ingenuityPoints.map(
-                  ({ outline, detail }: IngenuityPointType) => (
-                    <IntersectionObserverWrap
-                      key={outline}
-                      defaultClass=""
-                      addClasses={[]}
-                      removeClasses={["opacity-0"]}
-                    >
-                      <IngenuityPoint outline={outline} detail={detail} />
-                    </IntersectionObserverWrap>
-                  )
-                )}
-              </div>
-            </SectionTemplate>
+        <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd] lg:flex-row-reverse relative lg:max-w-[1200px] lg:w-[95%] lg:mx-auto">
+          <div className="w-full max-w-4xl mx-auto  sm:pt-6 lg:pt-12 lg:w-[55%] lg:sticky lg:max-h-96 top-[52px]">
+            <ImageGalleryComponent images={images} />
+          </div>
+          <div className="w-11/12 max-w-4xl mx-auto flex flex-col gap-y-2  sm:pt-6 lg:pt-12 lg:w-[40%]">
+            <h1 className="text-[28px] text-blue-400 font-bold">
+              {work.title}
+            </h1>
+            <div className="flex flex-col gap-4">
+              <SectionTemplate title="概要">
+                <p className=" whitespace-pre-wrap text-gray-600 text-[14px]">
+                  {work.desc}
+                </p>
+              </SectionTemplate>
+              <SectionTemplate title="開発に至った経緯">
+                <p className=" whitespace-pre-wrap text-gray-600 text-[14px]">
+                  {work.projectOrigin}
+                </p>
+              </SectionTemplate>
+              <SectionTemplate title="開発人数・開発期間">
+                <p className=" whitespace-pre-wrap text-gray-600 text-[14px]">
+                  {work.numberOfDevelopers}人で、 {work.developmentPeriod.value}
+                  {work.developmentPeriod.unit}
+                </p>
+              </SectionTemplate>
+              <SectionTemplate title="使用言語など">
+                <div className=" flex items-center gap-2 flex-wrap">
+                  {work.technologyUsed.technologyUsed.map(
+                    (technology: string) => (
+                      <span
+                        key={technology}
+                        className=" text-[13px] font-bold border border-gray-400 text-gray-600 px-[8px] py-[7px] rounded-[18px] min-w-16 inline-block text-center"
+                      >
+                        {technology}
+                      </span>
+                    )
+                  )}
+                </div>
+              </SectionTemplate>
+              <SectionTemplate title="リンク">
+                <div className=" flex flex-col gap-y-2">
+                  {work.links.map(({ name, url, logoImage }: LinkType) => (
+                    <LinkComponent
+                      key={name}
+                      name={name}
+                      url={url}
+                      logoImage={logoImage.url}
+                    />
+                  ))}
+                </div>
+              </SectionTemplate>
+              <SectionTemplate title="工夫した点">
+                <div className=" flex flex-col gap-y-5">
+                  {work.ingenuityPoints.map(
+                    ({ outline, detail }: IngenuityPointType) => (
+                      <IntersectionObserverWrap
+                        key={outline}
+                        defaultClass=""
+                        addClasses={[]}
+                        removeClasses={["opacity-0"]}
+                      >
+                        <IngenuityPoint outline={outline} detail={detail} />
+                      </IntersectionObserverWrap>
+                    )
+                  )}
+                </div>
+              </SectionTemplate>
+            </div>
           </div>
         </div>
       </div>

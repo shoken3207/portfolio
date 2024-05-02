@@ -105,8 +105,8 @@ const History = () => {
   return (
     <div className="vertical-timeline-element">
       <VerticalTimeline lineColor="skyblue" animate={false}>
-        {timeline.map((timeline) => (
-          <TimelineElement key={timeline.title} timeline={timeline} />
+        {timeline.map((timeline, index) => (
+          <TimelineElement key={timeline.title + index} timeline={timeline} />
         ))}
       </VerticalTimeline>
     </div>

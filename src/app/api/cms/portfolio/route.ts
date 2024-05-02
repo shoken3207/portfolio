@@ -6,7 +6,7 @@ export async function POST(request: Request): Promise<Response> {
   const bodyText = await request.text();
   const bodyBuffer = Buffer.from(bodyText, "utf-8");
 
-  const secret = process.env.MICROCMS_WEBHOOK_SIGNATURE_SECRET;
+  const secret = process.env.MICROCMS_WEBHOOK_SIGNATURE_SECRET_PORTFOLIO;
   if (!secret) {
     console.error("Secret is empty.");
     return NextResponse.json({

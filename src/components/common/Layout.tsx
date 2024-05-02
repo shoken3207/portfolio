@@ -14,7 +14,6 @@ import Header from "../Header/Header";
 const Layout = ({ portfolio }: { portfolio: portfolio }) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerHeight, setHeaderHeight] = useState<number>(0);
-  console.log("headerHeight: ", headerHeight);
 
   useEffect(() => {
     setHeaderHeight(

@@ -1,5 +1,5 @@
 "use client";
-import React, { RefObject, forwardRef, useEffect, useState } from "react";
+import React, { RefObject, forwardRef, useState } from "react";
 import LinkWrap from "../common/LinkWrap";
 import Navigation from "./Navigation";
 import { usePathname } from "next/navigation";
