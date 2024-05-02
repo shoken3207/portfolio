@@ -15,7 +15,7 @@ const Skill = ({
   qualifications: portfolio_qualification[];
 }) => {
   return (
-    <div className="flex flex-col gap-y-16 ">
+    <div className="flex flex-col gap-y-16 w-full overflow-hidden">
       <div className="flex justify-center items-stretch flex-wrap gap-x-6 gap-y-8  sm:grid grid-cols-auto-fit-[270px]">
         {skills.map(({ title, logoImage, skills }) => (
           <SkillCard
