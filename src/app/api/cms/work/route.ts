@@ -49,7 +49,7 @@ export async function POST(request: NextRequest): Promise<Response> {
       status: 400,
     });
   }
-
+  revalidatePath("/");
   revalidatePath(`/work/${workId}`);
   console.log("success", isValid);
   return NextResponse.json({ message: "success" });
