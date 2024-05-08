@@ -162,7 +162,7 @@ export type portfolio<T = "get"> = Structure<
     /**
      * 開発実績
      */
-    works: Reference<T, unknown>[];
+    works: works[];
     /**
      * 保持資格
      */

@@ -41,12 +41,14 @@ const Form = () => {
         message,
       };
 
-      send(serviceId, templateId, template_param).then(() => {
-        alert(
-          `下記の内容で送信いたしました。\n\n名前: ${name}\nemail: ${email}\nmessage: ${message}`
-        );
-        handleClear();
-      });
+      send(serviceId, templateId, template_param)
+        .then(() => {
+          alert(
+            `下記の内容で送信いたしました。\n\n名前: ${name}\nemail: ${email}\nmessage: ${message}`
+          );
+          handleClear();
+        })
+        .catch((err) => console.log("err: ", err));
     }
   };
 

@@ -1,8 +1,9 @@
 import React from "react";
 import LinkWrap from "./common/LinkWrap";
 import IntersectionObserverWrap from "./common/IntersectionObserverWrap";
+import { works } from "@/types/cms-portfolio-types";
 
-const Work = ({ works }: { works: any[] }) => {
+const Work = ({ works }: { works: works[] }) => {
   return (
     <div className="flex justify-center items-stretch flex-wrap gap-x-4 gap-y-8  sm:grid grid-cols-auto-fit-[250px] sm:gap-10">
       {works.map((work) => (
