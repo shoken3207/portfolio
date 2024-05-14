@@ -1,5 +1,5 @@
 "use client";
-import Work from "@/components/Work";
+import WorkCard from "@/components/workCard/WorkCard";
 import Section from "@/components/common/Section";
 import Form from "@/components/form/Form";
 import History from "@/components/history/History";
@@ -10,6 +10,7 @@ import Skill from "@/components/skill/Skill";
 import { portfolio } from "@/types/cms-types";
 import { useEffect, useRef, useState } from "react";
 import Header from "../Header/Header";
+import WorkCardWrapper from "../workCard/WorkCardWrapper";
 
 const Layout = ({ portfolio }: { portfolio: portfolio }) => {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -59,7 +60,7 @@ const Layout = ({ portfolio }: { portfolio: portfolio }) => {
             sectionTitle="Works"
             maxWidth="max-w-[1000px]"
           >
-            <Work works={portfolio.works} />
+            <WorkCardWrapper works={portfolio.works} />
           </Section>
           <Section
             backGroundColor="bg-gradient-to-tl from-green-100 via-cyan-100 to-blue-100"

@@ -8,12 +8,14 @@ const IntersectionObserverWrap = ({
   defaultClass,
   rootMargin,
   children,
+  style,
 }: {
   addClasses: string[];
   removeClasses: string[];
   defaultClass: string;
   rootMargin?: string;
   children: React.ReactNode;
+  style?: {};
 }) => {
   const showElements = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
@@ -33,6 +35,7 @@ const IntersectionObserverWrap = ({
   });
   return (
     <div
+      style={style}
       ref={ref}
       className={defaultClass || " opacity-0 transition-all duration-1000"}
     >
