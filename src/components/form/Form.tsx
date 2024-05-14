@@ -1,8 +1,8 @@
 "use client";
+import { init, send } from "emailjs-com";
 import React, { useState } from "react";
 import Input from "./Input";
 import InputArea from "./InputArea";
-import { init, send } from "emailjs-com";
 
 const Form = () => {
   const [form, setForm] = useState<{

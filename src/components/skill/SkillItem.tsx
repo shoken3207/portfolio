@@ -1,6 +1,5 @@
 "use client";
 import Rating from "@mui/material/Rating";
-import React from "react";
 
 const SkillItem = ({ name, level }: { name: string; level: number }) => {
   return (

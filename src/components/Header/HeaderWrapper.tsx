@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import Header from "./Header";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import Header from "./Header";
 
 const HeaderWrapper = () => {
   const headerRef = useRef<HTMLDivElement>(null);

@@ -1,7 +1,6 @@
-import React from "react";
-import LinkWrap from "./common/LinkWrap";
+import { works } from "@/types/cms-types";
 import IntersectionObserverWrap from "./common/IntersectionObserverWrap";
-import { works } from "@/types/cms-portfolio-types";
+import LinkWrap from "./common/LinkWrap";
 
 const Work = ({ works }: { works: works[] }) => {
   return (

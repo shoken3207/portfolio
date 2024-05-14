@@ -1,27 +1,14 @@
 "use client";
-import React from "react";
-import { useInView } from "react-intersection-observer";
+import { portfolio_history } from "@/types/cms-types";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
-import LinkComponent from "../work/LinkComponent";
 import IntersectionObserverWrap from "../common/IntersectionObserverWrap";
+import LinkComponent from "../work/LinkComponent";
 
-const TimelineElement = ({
-  timeline,
-}: {
-  timeline: {
-    date: string;
-    title: string;
-    subtitle?: string;
-    desc?: string;
-    images: string[];
-    links: { name: string; url: string }[];
-  };
-}) => {
+const TimelineElement = ({ timeline }: { timeline: portfolio_history }) => {
   const { date, title, subtitle, desc, images, links } = timeline;
-  const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
-    <div ref={ref} className="vertical-timeline-element">
+    <div className="vertical-timeline-element">
       <IntersectionObserverWrap
         rootMargin="-150px"
         defaultClass="transition-all duration-[850ms] translate-y-10 opacity-0"
@@ -29,7 +16,6 @@ const TimelineElement = ({
         removeClasses={["translate-y-10", "opacity-0"]}
       >
         <VerticalTimelineElement
-          visible={inView}
           date={date}
           iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
         >
@@ -52,7 +38,7 @@ const TimelineElement = ({
                 <div className="flex items-center gap-x-4 mt-4">
                   {images.map((image) => (
                     <div key={image} className="w-[45%] max-w-40 p-4 shadow-md">
-                      <img className="w-full h-full" src={image} alt="" />
+                      <img className="w-full h-full" src={image.url} alt="" />
                     </div>
                   ))}
                 </div>

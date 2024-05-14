@@ -1,5 +1,3 @@
-import React from "react";
-
 const QualificationsTableColumn = ({
   name,
   acquisitionDate,

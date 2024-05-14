@@ -7,8 +7,8 @@ import Home from "@/components/home/Home";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
 import Profile from "@/components/profile/Profile";
 import Skill from "@/components/skill/Skill";
-import { portfolio } from "@/types/cms-portfolio-types";
-import React, { useEffect, useRef, useState } from "react";
+import { portfolio } from "@/types/cms-types";
+import { useEffect, useRef, useState } from "react";
 import Header from "../Header/Header";
 
 const Layout = ({ portfolio }: { portfolio: portfolio }) => {
@@ -41,7 +41,7 @@ const Layout = ({ portfolio }: { portfolio: portfolio }) => {
             sectionTitle="History"
             maxWidth="max-w-full"
           >
-            <History />
+            <History history={portfolio.history} />
           </Section>
           <Section
             headerHeight={headerHeight}

@@ -1,12 +1,12 @@
-import ImageGalleryComponent from "@/components/work/ImageGalleryComponent";
-import LinkComponent from "@/components/work/LinkComponent";
+import BackButton from "@/components/common/BackButton";
+import IntersectionObserverWrap from "@/components/common/IntersectionObserverWrap";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
+import ImageGalleryComponent from "@/components/work/ImageGalleryComponent";
+import IngenuityPoint from "@/components/work/IngenuityPoint";
+import LinkComponent from "@/components/work/LinkComponent";
 import SectionTemplate from "@/components/work/SectionTemplate";
 import { getWork, getWorks } from "@/libs/microcms";
-import React from "react";
-import IngenuityPoint from "@/components/work/IngenuityPoint";
-import IntersectionObserverWrap from "@/components/common/IntersectionObserverWrap";
-import BackButton from "@/components/common/BackButton";
+import { works } from "@/types/cms-types";
 
 type ImageType = { url: string; height: number; width: number };
 type LinkType = {
@@ -20,7 +20,7 @@ export type IngenuityPointType = {
 };
 
 export const generateStaticParams = async () => {
-  const { contents } = await getWorks();
+  const { contents }: { contents: works[] } = await getWorks();
   const paths = contents.map((work) => {
     return {
       workId: work.id,

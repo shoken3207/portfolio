@@ -1,14 +1,14 @@
 "use client";
-import React, { RefObject, forwardRef, useState } from "react";
-import LinkWrap from "../common/LinkWrap";
-import Navigation from "./Navigation";
-import { usePathname } from "next/navigation";
 import { notojp } from "@/utils/font";
-import Profile from "../common/icons/Profile";
+import { usePathname } from "next/navigation";
+import { RefObject, forwardRef, useState } from "react";
+import LinkWrap from "../common/LinkWrap";
+import Form from "../common/icons/Form";
 import History from "../common/icons/History";
+import Profile from "../common/icons/Profile";
 import Skill from "../common/icons/Skill";
 import Work from "../common/icons/Work";
-import Form from "../common/icons/Form";
+import Navigation from "./Navigation";
 
 const Header = forwardRef(
   ({ headerRef }: { headerRef: RefObject<HTMLDivElement> }) => {

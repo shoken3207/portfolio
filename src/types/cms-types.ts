@@ -63,7 +63,7 @@ export type works<T = "get"> = Structure<
   }
 >;
 
-interface works_ingenuityPoint {
+export interface works_ingenuityPoint {
   fieldId: "ingenuityPoint";
   /**
    * 概略
@@ -74,7 +74,7 @@ interface works_ingenuityPoint {
    */
   detail: string;
 }
-interface works_link {
+export interface works_link {
   fieldId: "link";
   /**
    * 名前
@@ -171,6 +171,10 @@ export type portfolio<T = "get"> = Structure<
      * 保持スキル
      */
     skills: portfolio_skillsByCategory[];
+    /**
+     * 沿革
+     */
+    history?: portfolio_history[];
   }
 >;
 
@@ -260,6 +264,44 @@ interface portfolio_link {
    * ロゴ画像
    */
   logoImage: { url: string; width: number; height: number };
+}
+export interface portfolio_history {
+  fieldId: "history";
+  /**
+   * ひにち
+   */
+  date: string;
+  /**
+   * タイトル
+   */
+  title: string;
+  /**
+   * サブタイトル
+   */
+  subtitle?: string;
+  /**
+   * 説明文
+   */
+  desc?: string;
+  /**
+   * 画像
+   */
+  images: any[];
+  /**
+   * リンク
+   */
+  links: portfolio_historyLink[];
+}
+export interface portfolio_historyLink {
+  fieldId: "historyLink";
+  /**
+   * 名前
+   */
+  name: string;
+  /**
+   * url
+   */
+  url: string;
 }
 
 export interface EndPoints {

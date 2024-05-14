@@ -1,7 +1,6 @@
-import React from "react";
-import SkillItem from "./SkillItem";
-import { portfolio_skill } from "@/types/cms-portfolio-types";
+import { portfolio_skill } from "@/types/cms-types";
 import IntersectionObserverWrap from "../common/IntersectionObserverWrap";
+import SkillItem from "./SkillItem";
 
 const SkillCard = ({
   title,

@@ -1,5 +1,3 @@
-import React from "react";
-
 const Form = ({ width, height }: { width: string; height: string }) => {
   return (
     <svg

@@ -1,5 +1,4 @@
-import { portfolio_qualification } from "@/types/cms-portfolio-types";
-import React from "react";
+import { portfolio_qualification } from "@/types/cms-types";
 import QualificationsTableColumn from "./QualificationsTableColumn";
 
 const QualificationTable = ({

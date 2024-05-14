@@ -1,6 +1,6 @@
+import { notojp } from "@/utils/font";
 import React from "react";
 import LinkWrap from "../common/LinkWrap";
-import { notojp } from "@/utils/font";
 
 const Navigation = ({
   navItems,

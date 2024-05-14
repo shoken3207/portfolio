@@ -1,11 +1,10 @@
 import {
   portfolio_qualification,
   portfolio_skillsByCategory,
-} from "@/types/cms-portfolio-types";
-import React from "react";
-import SkillCard from "./SkillCard";
+} from "@/types/cms-types";
 import IntersectionObserverWrap from "../common/IntersectionObserverWrap";
 import QualificationTable from "./QualificationTable";
+import SkillCard from "./SkillCard";
 
 const Skill = ({
   skills,

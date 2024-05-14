@@ -1,7 +1,6 @@
-import React from "react";
-import LinkComponent from "../work/LinkComponent";
-import { portfolio_profile } from "@/types/cms-portfolio-types";
+import { portfolio_profile } from "@/types/cms-types";
 import IntersectionObserverWrap from "../common/IntersectionObserverWrap";
+import LinkComponent from "../work/LinkComponent";
 
 const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
   const {

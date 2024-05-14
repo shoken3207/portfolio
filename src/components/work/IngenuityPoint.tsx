@@ -1,5 +1,4 @@
 import { IngenuityPointType } from "@/app/work/[workId]/page";
-import React from "react";
 
 const IngenuityPoint = ({ outline, detail }: IngenuityPointType) => {
   return (
