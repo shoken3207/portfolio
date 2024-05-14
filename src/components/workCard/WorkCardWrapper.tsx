@@ -19,7 +19,12 @@ const WorkCardWrapper = ({ works }: { works: works[] }) => {
   return (
     <div className="flex justify-center items-stretch flex-wrap gap-x-4 gap-y-8  sm:grid grid-cols-auto-fit-[250px] sm:gap-10">
       {works.map((work, index) => (
-        <WorkCard childrenCount={childrenCount} work={work} index={index} />
+        <WorkCard
+          key={work.id}
+          childrenCount={childrenCount}
+          work={work}
+          index={index}
+        />
       ))}
     </div>
   );
