@@ -27,9 +27,9 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
     <div className="w-[95%] mx-auto flex flex-col items-start justify-start gap-y-10 sm:gap-y-14 lg:w-full">
       <IntersectionObserverWrap
         rootMargin="-100px"
-        defaultClass="transition-all duration-[800ms] -translate-x-48 opacity-0"
+        defaultClass="transition-all duration-[800ms] -translate-x-32 opacity-0"
         addClasses={[]}
-        removeClasses={["-translate-x-48", "opacity-0"]}
+        removeClasses={["-translate-x-32", "opacity-0"]}
       >
         <div className="w-full flex  items-center justify-start gap-x-4">
           <img
@@ -66,7 +66,7 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
       </IntersectionObserverWrap>
       <div className="w-full flex flex-col gap-y-6 sm:gap-y-4">
         <IntersectionObserverWrap
-          rootMargin="-100px"
+          rootMargin="-80px"
           defaultClass="transition-all duration-[800ms] translate-y-4 opacity-0"
           addClasses={[]}
           removeClasses={["translate-y-4", "opacity-0"]}
@@ -77,7 +77,7 @@ const Profile = ({ profileInfo }: { profileInfo: portfolio_profile }) => {
         </IntersectionObserverWrap>
 
         <IntersectionObserverWrap
-          rootMargin="-100px"
+          rootMargin="-90px"
           defaultClass="transition-all duration-[800ms] translate-y-4 opacity-0"
           addClasses={[]}
           removeClasses={["translate-y-4", "opacity-0"]}

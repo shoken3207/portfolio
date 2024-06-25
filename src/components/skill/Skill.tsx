@@ -27,9 +27,9 @@ const Skill = ({
       </div>
       <IntersectionObserverWrap
         rootMargin="-100px"
-        defaultClass="transition-all duration-[800ms] translate-x-48 opacity-0"
+        defaultClass="transition-all duration-[800ms] translate-x-32 opacity-0"
         addClasses={[]}
-        removeClasses={["translate-x-48", "opacity-0"]}
+        removeClasses={["translate-x-32", "opacity-0"]}
       >
         <div className="w-full mx-auto  flex flex-col items-start justify-start gap-y-4 px-4  py-4 shadow-md rounded-[10px] bg-white">
           <h3 className="w-full  text-2xl font-bold sm:text-3xl">保持資格</h3>

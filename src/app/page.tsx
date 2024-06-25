@@ -4,7 +4,6 @@ import { portfolio } from "@/types/cms-types";
 
 const page = async () => {
   const portfolio: portfolio = await getPortfolioInfo();
-  console.log(portfolio);
   return <Layout portfolio={portfolio} />;
 };
 

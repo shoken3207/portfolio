@@ -1,6 +1,7 @@
 import BackButton from "@/components/common/BackButton";
 import IntersectionObserverWrap from "@/components/common/IntersectionObserverWrap";
 import MotionWrapper from "@/components/motionWrapper/motionWrapper";
+import BackButtonWrapper from "@/components/work/BackButtonWrapper";
 import ImageGalleryComponent from "@/components/work/ImageGalleryComponent";
 import IngenuityPoint from "@/components/work/IngenuityPoint";
 import LinkComponent from "@/components/work/LinkComponent";
@@ -42,11 +43,7 @@ const StaticDetailPage = async ({
   return (
     <MotionWrapper>
       <div className="min-h-screen">
-        <div className="bg-[#f5fbfd]  shadow-sm  sticky top-0 z-30">
-          <div className="w-[95%] max-w-[1300px] mx-auto flex justify-start items-center py-1.5">
-            <BackButton />
-          </div>
-        </div>
+        <BackButtonWrapper workId={workId} />
         <div className=" pb-8 flex flex-col gap-y-4 bg-[#f5fbfd] lg:flex-row-reverse relative lg:max-w-[1300px] lg:w-[95%] lg:mx-auto">
           <div className="w-full max-w-4xl mx-auto  lg:pt-12 lg:w-[55%] lg:sticky lg:max-h-96 top-[52px]">
             <IntersectionObserverWrap

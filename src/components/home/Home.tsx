@@ -14,7 +14,7 @@ const Scene = () => {
     <>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <OrbitControls />
+      {/* <OrbitControls /> */}
       <Suspense fallback={null}>
         <Model />
       </Suspense>
@@ -24,9 +24,9 @@ const Scene = () => {
 const Home = () => {
   return (
     <div>
-      <Canvas style={{ width: "100vw", height: "100vh" }}>
+      {/* <Canvas style={{ width: "100%", height: "100vh" }}>
         <Scene />
-      </Canvas>
+      </Canvas> */}
     </div>
   );
 };

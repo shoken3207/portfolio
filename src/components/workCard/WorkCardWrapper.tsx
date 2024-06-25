@@ -8,7 +8,6 @@ const WorkCardWrapper = ({ works }: { works: works[] }) => {
   useEffect(() => {
     let count = 1;
     const screenWidth = window.innerWidth;
-    console.log(window.innerWidth);
     if (screenWidth >= 923) {
       count = 3;
     } else if (screenWidth >= 640) {

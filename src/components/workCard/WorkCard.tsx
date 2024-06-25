@@ -12,7 +12,10 @@ const WorkCard = ({
   childrenCount: number;
 }) => {
   return (
-    <div className="flex justify-center items-stretch flex-wrap gap-x-4 gap-y-8  sm:grid grid-cols-auto-fit-[250px] sm:gap-10">
+    <div
+      id={work.id}
+      className="flex justify-center items-stretch flex-wrap gap-x-4 gap-y-8  sm:grid grid-cols-auto-fit-[250px] sm:gap-10"
+    >
       <IntersectionObserverWrap
         key={work.id}
         rootMargin="-120px"

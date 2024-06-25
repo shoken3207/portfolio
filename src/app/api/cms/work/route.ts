@@ -40,9 +40,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     });
   }
   // 再検証処理（後述します）
-  console.log("publishValue: ", bodyJson.id);
   const workId = bodyJson.id;
-  console.log("workId: ", workId);
   if (!workId) {
     console.error("workIdがありません");
     return NextResponse.json({
@@ -51,6 +49,5 @@ export async function POST(request: NextRequest): Promise<Response> {
   }
   revalidatePath("/");
   revalidatePath(`/work/${workId}`);
-  console.log("success", isValid);
   return NextResponse.json({ message: "success" });
 }

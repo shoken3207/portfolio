@@ -40,6 +40,5 @@ export async function POST(request: Request): Promise<Response> {
   }
   // 再検証処理（後述します）
   revalidatePath("/");
-  console.log("success", isValid);
   return NextResponse.json({ message: "success" });
 }
