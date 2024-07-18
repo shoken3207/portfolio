@@ -8,7 +8,7 @@ const Section = ({
   headerHeight,
   backGroundColor,
 }: {
-  sectionTitle: string;
+  sectionTitle?: string;
   id: string;
   children: React.ReactNode;
   maxWidth?: string;
@@ -26,9 +26,12 @@ const Section = ({
       <div
         className={`w-11/12 ${maxWidthClass} mx-auto flex flex-col gap-y-10 sm:gap-y-16`}
       >
-        <h2 className=" text-3xl font-bold text-center sm:text-4xl">
-          {sectionTitle}
-        </h2>
+        {sectionTitle && (
+          <h2 className=" text-3xl font-bold text-center sm:text-4xl">
+            {sectionTitle}
+          </h2>
+        )}
+
         {children}
       </div>
     </section>

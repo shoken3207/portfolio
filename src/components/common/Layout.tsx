@@ -26,7 +26,7 @@ const Layout = ({ portfolio }: { portfolio: portfolio }) => {
       <Header headerRef={headerRef} />
       <MotionWrapper>
         <div className="flex flex-col gap-y-16">
-          <Section headerHeight={headerHeight} id="home" sectionTitle="Home">
+          <Section headerHeight={headerHeight} id="home">
             <Home />
           </Section>
           <Section
