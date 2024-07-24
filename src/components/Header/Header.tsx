@@ -1,7 +1,7 @@
 "use client";
 import { notojp } from "@/utils/font";
 import { usePathname } from "next/navigation";
-import { RefObject, forwardRef, useState } from "react";
+import { RefObject, forwardRef, useEffect, useState } from "react";
 import LinkWrap from "../common/LinkWrap";
 import Form from "../common/icons/Form";
 import History from "../common/icons/History";
@@ -39,13 +39,27 @@ const Header = forwardRef(
         icon: <Form width="w-[20px]" height="h-[20px]" />,
       },
     ];
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState<Boolean>(false);
+    const [showHeader, setShowHeader] = useState<Boolean>(false);
     const backgroundClass = isOpen ? "black" : "hidden";
     const mobileMenuClass = isOpen ? "translate-x-0" : "translate-x-[-100%]";
-    const pathname = usePathname();
+    const isShowClass = showHeader
+      ? "opacity-1 transition-all duration-300"
+      : "opacity-0 transition-all duration-300";
+
+    useEffect(() => {
+      const handleScroll = () => {
+        setShowHeader(window.scrollY > window.innerHeight - 200);
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => window.removeEventListener("scroll", handleScroll);
+    });
 
     return (
-      <div>
+      <div className={`${isShowClass}`}>
         {pathname.split("/")[1] !== "work" && (
           <div>
             <div
@@ -55,7 +69,7 @@ const Header = forwardRef(
             <div
               className={`fixed z-30 top-[4px] left-0 h-full pt-3 bg-white flex flex-col gap-y-4 min-w-36 max-w-[250px] w-[65%] transition:all duration-300  ${mobileMenuClass}`}
             >
-              <LinkWrap href="/#home">
+              <LinkWrap href="/#">
                 <h1
                   onClick={() => setIsOpen(false)}
                   className="duration-300 cursor-pointer hover:opacity-50 transition-duration: 150ms flex flex-col gap-y-1.5 items-center my-4"

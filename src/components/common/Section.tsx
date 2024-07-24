@@ -5,6 +5,7 @@ const Section = ({
   id,
   children,
   maxWidth,
+  isFullWidth,
   headerHeight,
   backGroundColor,
 }: {
@@ -12,9 +13,11 @@ const Section = ({
   id: string;
   children: React.ReactNode;
   maxWidth?: string;
+  isFullWidth?: Boolean;
   headerHeight?: number;
   backGroundColor?: string;
 }) => {
+  const widthClass = isFullWidth ? "w-full" : "w-11/12";
   const maxWidthClass = maxWidth || "max-w-[800px]";
   const backGroundColorClass = backGroundColor || "bg-[#f5fbfd]";
   return (
@@ -24,7 +27,7 @@ const Section = ({
       className={`flex items-center justify-center w-full min-h-screen py-4 ${backGroundColorClass}`}
     >
       <div
-        className={`w-11/12 ${maxWidthClass} mx-auto flex flex-col gap-y-10 sm:gap-y-16`}
+        className={`${widthClass} ${maxWidthClass} mx-auto flex flex-col gap-y-10 sm:gap-y-16`}
       >
         {sectionTitle && (
           <h2 className=" text-3xl font-bold text-center sm:text-4xl">

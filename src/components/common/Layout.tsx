@@ -1,5 +1,4 @@
 "use client";
-import WorkCard from "@/components/workCard/WorkCard";
 import Section from "@/components/common/Section";
 import Form from "@/components/form/Form";
 import History from "@/components/history/History";
@@ -26,9 +25,7 @@ const Layout = ({ portfolio }: { portfolio: portfolio }) => {
       <Header headerRef={headerRef} />
       <MotionWrapper>
         <div className="flex flex-col gap-y-16">
-          <Section headerHeight={headerHeight} id="home">
-            <Home />
-          </Section>
+          <Home />
           <Section
             headerHeight={headerHeight}
             id="profile"
