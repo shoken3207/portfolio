@@ -1,6 +1,6 @@
 "use client";
 
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three"; // 追加
@@ -8,30 +8,31 @@ import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 
 const Text = ({ text }: { text: string }) => {
-  const font = useLoader(FontLoader, "/fonts/Roboto_Bold.json");
+  const font = useLoader(
+    FontLoader,
+    "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
+  );
   const mesh = useRef<THREE.Mesh>(null!);
 
   useEffect(() => {
     if (!font) return;
     const textOptions = {
-      size: 30,
-      height: 4,
-      curveSegments: 3,
       font,
-      weight: "bold",
-      style: "normal",
-      bevelThickness: 1,
-      bevelSize: 2,
+      size: 1.2, // テキストサイズの調整
+      height: 0.5, // テキストの厚みを大きく
+      curveSegments: 12,
       bevelEnabled: true,
-      material: 0,
-      extrudeMaterial: 1,
+      bevelThickness: 0.1,
+      bevelSize: 0.05,
+      bevelOffset: 0,
+      bevelSegments: 5,
     };
     mesh.current.geometry = new TextGeometry(text, textOptions);
   }, [text, font]);
 
   return (
-    <mesh ref={mesh} position={[-3.5, 1.4, 2]} rotation={[0, 0.2, 0]}>
-      <meshStandardMaterial color={"black"} attach="material" />
+    <mesh ref={mesh} position={[-3.5, 0.6, 2]} rotation={[0, 0.2, 0]}>
+      <meshNormalMaterial attach="material" />
     </mesh>
   );
 };
