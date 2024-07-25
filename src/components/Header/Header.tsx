@@ -50,7 +50,7 @@ const Header = forwardRef(
 
     useEffect(() => {
       const handleScroll = () => {
-        setShowHeader(window.scrollY > 300);
+        setShowHeader(window.scrollY > window.innerHeight - 150);
       };
 
       window.addEventListener("scroll", handleScroll);
