@@ -1,7 +1,7 @@
 "use client";
 import { notojp } from "@/utils/font";
 import { usePathname } from "next/navigation";
-import { RefObject, forwardRef, useEffect, useState } from "react";
+import { RefObject, forwardRef, useState } from "react";
 import LinkWrap from "../common/LinkWrap";
 import Form from "../common/icons/Form";
 import History from "../common/icons/History";
@@ -41,25 +41,11 @@ const Header = forwardRef(
     ];
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState<Boolean>(false);
-    const [showHeader, setShowHeader] = useState<Boolean>(false);
     const backgroundClass = isOpen ? "black" : "hidden";
     const mobileMenuClass = isOpen ? "translate-x-0" : "translate-x-[-100%]";
-    const isShowClass = showHeader
-      ? "opacity-1 transition-all duration-300"
-      : "opacity-0 transition-all duration-300";
-
-    useEffect(() => {
-      const handleScroll = () => {
-        setShowHeader(window.scrollY > window.innerHeight - 150);
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      return () => window.removeEventListener("scroll", handleScroll);
-    });
 
     return (
-      <div className={`${isShowClass}`}>
+      <div>
         {pathname.split("/")[1] !== "work" && (
           <div>
             <div
