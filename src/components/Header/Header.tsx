@@ -10,8 +10,13 @@ import Skill from "../common/icons/Skill";
 import Work from "../common/icons/Work";
 import Navigation from "./Navigation";
 
-const Header = forwardRef(
-  ({ headerRef }: { headerRef: RefObject<HTMLDivElement> }) => {
+interface HeaderProps {
+  headerRef: RefObject<HTMLDivElement>;
+  show: boolean;
+}
+
+const Header = forwardRef<HTMLDivElement, HeaderProps>(
+  ({ headerRef, show }: HeaderProps) => {
     const navItems = [
       {
         text: "プロフィール",
@@ -90,7 +95,11 @@ const Header = forwardRef(
             </div>
             <header
               ref={headerRef}
-              className={`fixed top-0 z-10 w-full bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20`}
+              className={`fixed top-0 left-0 right-0 z-10 bg-white py-4 border-t-[3px] border-blue-400 shadow-sm shadow-blue-400/20 transition-all duration-300 ${
+                show
+                  ? "translate-y-0 opacity-100"
+                  : "-translate-y-full opacity-0"
+              }`}
             >
               <div className=" w-11/12 mx-auto max-w-[1000px] flex justify-between items-center transition-opacity hidden]">
                 <LinkWrap href="/#home">

@@ -14,15 +14,26 @@ import WorkCardWrapper from "../workCard/WorkCardWrapper";
 const Layout = ({ portfolio }: { portfolio: portfolio }) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerHeight, setHeaderHeight] = useState<number>(0);
+  const [showHeader, setShowHeader] = useState<boolean>(false);
 
   useEffect(() => {
     setHeaderHeight(
       headerRef ? (headerRef.current ? headerRef.current.clientHeight : 0) : 0
     );
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      setShowHeader(scrollPosition > viewportHeight * 0.7);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <div>
-      <Header headerRef={headerRef} />
+      <Header headerRef={headerRef} show={showHeader} />
       <MotionWrapper>
         <div className="flex flex-col gap-y-16">
           <Home />
