@@ -4,7 +4,6 @@ import { OrbitControls, Text3D, Center, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
-import Loader from "./Loader";
 
 const FloatingParticles = () => {
   const particlesCount = 100;
