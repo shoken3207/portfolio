@@ -131,20 +131,7 @@ const BirdModel = () => {
   );
 };
 
-const Scene = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 1048);
-    };
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
-    };
-  }, []);
-
+const Scene = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <>
       {!isMobile && (
@@ -170,6 +157,17 @@ const Scene = () => {
 };
 
 const Home = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
   return (
     <div
       style={{
@@ -177,13 +175,13 @@ const Home = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
+        backgroundAttachment: isMobile ? "scroll" : "fixed",
       }}
       className="relative h-screen min-h-[100svh]"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50"></div>
       <Canvas camera={{ position: [0, 0, 5] }}>
-        <Scene />
+        <Scene isMobile={isMobile} />
       </Canvas>
       <div className="absolute bottom-10 left-10 text-white">
         <h2 className="text-3xl font-bold mb-2 [text-shadow:_2px_2px_4px_rgb(0_0_0_/_50%)]">
