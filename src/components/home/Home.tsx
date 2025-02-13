@@ -91,22 +91,32 @@ const WelcomeText = () => {
   );
 };
 
-const BirdModel = () => {
+const LoadingScreen = () => {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-white/80 z-10">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-blue-600 font-medium">Loading 3D Model...</p>
+      </div>
+    </div>
+  );
+};
+
+const BirdModel = ({ onLoad }: { onLoad: () => void }) => {
   const { scene, animations } = useGLTF("/models/bird/scene.gltf");
   const modelRef = useRef<THREE.Group>(null);
-
   const mixer = useRef<THREE.AnimationMixer | null>(null);
 
   useEffect(() => {
     if (scene) {
       mixer.current = new THREE.AnimationMixer(scene);
-
       animations.forEach((clip) => {
         const action = mixer.current?.clipAction(clip);
         action?.play();
       });
+      onLoad();
     }
-  }, [scene, animations]);
+  }, [scene, animations, onLoad]);
 
   useFrame((state, delta) => {
     if (mixer.current) {
@@ -131,7 +141,13 @@ const BirdModel = () => {
   );
 };
 
-const Scene = ({ isMobile }: { isMobile: boolean }) => {
+const Scene = ({
+  isMobile,
+  onLoad,
+}: {
+  isMobile: boolean;
+  onLoad: () => void;
+}) => {
   return (
     <>
       {!isMobile && (
@@ -148,7 +164,7 @@ const Scene = ({ isMobile }: { isMobile: boolean }) => {
         castShadow
       />
       <Suspense fallback={null}>
-        <BirdModel />
+        <BirdModel onLoad={onLoad} />
         <FloatingParticles />
         <WelcomeText />
       </Suspense>
@@ -158,6 +174,7 @@ const Scene = ({ isMobile }: { isMobile: boolean }) => {
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -179,9 +196,10 @@ const Home = () => {
       }}
       className="relative h-[100svh]"
     >
+      {isLoading && <LoadingScreen />}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50"></div>
       <Canvas camera={{ position: [0, 0, 5] }}>
-        <Scene isMobile={isMobile} />
+        <Scene isMobile={isMobile} onLoad={() => setIsLoading(false)} />
       </Canvas>
       <div className="absolute bottom-10 left-10 text-white">
         <h2 className="text-3xl font-bold mb-2 [text-shadow:_2px_2px_4px_rgb(0_0_0_/_50%)]">
