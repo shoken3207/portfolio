@@ -54,24 +54,33 @@ const FloatingParticles = () => {
 };
 
 const WelcomeText = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
   return (
-    <Center position={[0, 2, 0]}>
+    <Center position={[isMobile ? 2.7 : 0, isMobile ? 2.3 : 2, 0]}>
       <group rotation={[0.2, 0, 0]}>
         <Text3D
           font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
-          size={0.55}
-          height={0.3}
+          size={isMobile ? 0.4 : 0.55}
+          height={isMobile ? 0.25 : 0.3}
           curveSegments={12}
           bevelEnabled={true}
-          bevelThickness={0.03}
-          bevelSize={0.02}
+          bevelThickness={isMobile ? 0.025 : 0.03}
+          bevelSize={isMobile ? 0.015 : 0.02}
           bevelOffset={0}
           bevelSegments={5}
         >
-          {`Welcome to My Portfolio`}
+          {isMobile ? "Welcome to\nMy Portfolio" : "Welcome to My Portfolio"}
           <meshPhongMaterial
             color="#35598c"
-            // emissive="#4f46e5"
             emissiveIntensity={0.5}
             shininess={50}
             specular={new THREE.Color("#ffffff")}
@@ -162,7 +171,7 @@ const Home = () => {
   return (
     <div
       style={{
-        backgroundImage: 'url("/images/rough-horn-2146181_640.jpg")',
+        backgroundImage: 'url("/images/rough-horn-2146181_1280.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -182,12 +191,6 @@ const Home = () => {
           Web Developer
         </p>
       </div>
-      {/* <div
-        className="absolute bottom-0 left-0 right-0 h-32 z-30"
-        style={{
-          background: `linear-gradient(to bottom, transparent, #f5fbfd)`,
-        }}
-      /> */}
     </div>
   );
 };
