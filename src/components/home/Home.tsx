@@ -177,7 +177,7 @@ const Home = () => {
         backgroundRepeat: "no-repeat",
         backgroundAttachment: isMobile ? "scroll" : "fixed",
       }}
-      className="relative h-screen min-h-[100svh]"
+      className="relative h-[100svh]"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50"></div>
       <Canvas camera={{ position: [0, 0, 5] }}>
