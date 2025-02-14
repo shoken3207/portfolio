@@ -10,6 +10,7 @@ const Form = () => {
     email: string;
     message: string;
   }>({ name: "", email: "", message: "" });
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (
     e:
@@ -21,7 +22,7 @@ const Form = () => {
     setForm({ ...form, [id]: value });
   };
 
-  const sendMail = (
+  const sendMail = async (
     e:
       | React.FormEvent<HTMLFormElement>
       | React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -34,21 +35,26 @@ const Form = () => {
     const templateId = process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID;
 
     if (!!userId && !!serviceId && !!templateId) {
-      init(userId);
-      const template_param = {
-        user_name: name,
-        user_email: email,
-        message,
-      };
+      setIsSending(true);
+      try {
+        init(userId);
+        const template_param = {
+          user_name: name,
+          user_email: email,
+          message,
+        };
 
-      send(serviceId, templateId, template_param)
-        .then(() => {
-          alert(
-            `下記の内容で送信いたしました。\n\n名前: ${name}\nemail: ${email}\nmessage: ${message}`
-          );
-          handleClear();
-        })
-        .catch((err) => console.log("err: ", err));
+        await send(serviceId, templateId, template_param);
+        alert(
+          `下記の内容で送信いたしました。\n\n名前: ${name}\nemail: ${email}\nmessage: ${message}`
+        );
+        handleClear();
+      } catch (err) {
+        console.log("err: ", err);
+        alert("送信に失敗しました。時間をおいて再度お試しください。");
+      } finally {
+        setIsSending(false);
+      }
     }
   };
 
@@ -57,10 +63,14 @@ const Form = () => {
     e?.stopPropagation();
     setForm({ name: "", email: "", message: "" });
   };
-  const submitButtonClass =
-    !form.email || !form.name || !form.message
-      ? "opacity-20 pointer-events-none"
-      : "";
+  const submitButtonClass = `
+    flex justify-center items-center gap-x-1 min-w-20 px-4 py-2 rounded-[10px] text-[18px] bg-sky-500 text-white
+    ${
+      !form.email || !form.name || !form.message || isSending
+        ? "opacity-20 pointer-events-none"
+        : ""
+    }
+  `;
   const resetButtonClass =
     !form.name && !form.email && !form.message
       ? "opacity-20 pointer-events-none"
@@ -110,16 +120,17 @@ const Form = () => {
             <img className="w-6" src="/icons/reset-svgrepo-com.svg" alt="" />
             リセット
           </button>
-          <button
-            type="submit"
-            className={`flex justify-center items-center gap-x-1 min-w-20 px-4 py-2 rounded-[10px] text-[18px] bg-sky-500 text-white ${submitButtonClass}`}
-          >
-            <img
-              className="w-6"
-              src="/icons/send-alt-1-svgrepo-com.svg"
-              alt=""
-            />
-            送信
+          <button type="submit" className={submitButtonClass}>
+            {isSending ? (
+              <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : (
+              <img
+                className="w-6"
+                src="/icons/send-alt-1-svgrepo-com.svg"
+                alt=""
+              />
+            )}
+            {isSending ? "送信中..." : "送信"}
           </button>
         </div>
       </form>
